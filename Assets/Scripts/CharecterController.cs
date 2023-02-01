@@ -24,6 +24,7 @@ public class CharecterController : MonoBehaviour
     public float GravityMultiplier;
     public float jumpBufferTime;
     public bool canJump;
+    public bool canBypassJump;
     [Header("Checks")]
     public Transform groundCheckPoint;
     public Vector2 groundCheckSize;
@@ -48,9 +49,9 @@ public class CharecterController : MonoBehaviour
     private bool canResetDash;
     public bool canResetJump;
     private Rigidbody2D rb;
-    [SerializeField] private bool isJumping;
-    private bool isDashing;
-    private bool isActuallyDashing;
+    [SerializeField] public bool isJumping;
+    public bool isDashing;
+    public bool isActuallyDashing;
     public bool canDash;
     private CameraController cameraController;
 
@@ -150,11 +151,11 @@ public class CharecterController : MonoBehaviour
         if (MeleeAttackManager.canAction && MeleeAttackManager.canAttack)
         {
             moveDirection = Input.GetAxis("Horizontal");
-            if (moveDirection > 0)
+            if (moveDirection > 0 && MeleeAttackManager.isStuck == false)
             {
                 FacingRight = true;
             }
-            else if (moveDirection < 0)
+            else if (moveDirection < 0 && MeleeAttackManager.isStuck == false)
             {
                 FacingRight = false;
             }
@@ -185,8 +186,16 @@ public class CharecterController : MonoBehaviour
  
             #region Jump
   
-            if (Input.GetButtonDown("Jump") && lastTimeGrounded < CoyoteTime && !isJumping && jumpBufferTemp <= 0 && !isActuallyDashing && canJump || Input.GetButtonDown("Jump") && isGrounded && lastTimeGrounded < CoyoteTime && !isJumping && canJump)
+            if (Input.GetButtonDown("Jump") && lastTimeGrounded < CoyoteTime && !isJumping && jumpBufferTemp <= 0 && !isActuallyDashing && canJump || Input.GetButtonDown("Jump") && isGrounded && lastTimeGrounded < CoyoteTime && !isJumping && canJump || canBypassJump && Input.GetButtonDown("Jump") && !isJumping && MeleeAttackManager.isStuck)
             {
+                if(canBypassJump == true)
+                {
+                    rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+                    MeleeAttackManager.isStuck = false;
+                    canBypassJump = false;
+
+                    Debug.Log("resetStick");
+                }
                 canJump = false;
                 isJumping = true;
                 canResetJump = false;
@@ -211,12 +220,12 @@ public class CharecterController : MonoBehaviour
             }
             #endregion
             #region directionFacing
-            if (Input.GetAxis("Horizontal") <= 1 && (Input.GetAxis("Horizontal")) > 0)
+            if (Input.GetAxis("Horizontal") <= 1 && (Input.GetAxis("Horizontal")) > 0 && MeleeAttackManager.isStuck == false)
             {
                 facingForward = true;
                 transform.localScale = new Vector2(1, transform.localScale.y);
             }
-            else if (Input.GetAxis("Horizontal") >= -1 && (Input.GetAxis("Horizontal")) < 0)
+            else if (Input.GetAxis("Horizontal") >= -1 && (Input.GetAxis("Horizontal")) < 0 && MeleeAttackManager.isStuck == false)
             {
                 facingForward = false;
                 transform.localScale = new Vector2(-1, transform.localScale.y);
@@ -353,7 +362,12 @@ public class CharecterController : MonoBehaviour
         timeManager.SlowDownTime();
     }
 
+    public void resetJump()
+    {
+        canJump = false;
+        isJumping = true;
 
+    }
     private IEnumerator StopDashing()
     {
         yield return new WaitForSecondsRealtime(dashTime);

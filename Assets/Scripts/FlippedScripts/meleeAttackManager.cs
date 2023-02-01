@@ -15,8 +15,8 @@ public class meleeAttackManager : MonoBehaviour
     public bool canAction;
     public bool canAttack;
     private Animator anim;
-    public GameObject Nuke; 
-    
+    public GameObject Nuke;
+    public bool isStuck = false;
     private CharecterController charecterController;
     private Rigidbody2D rb;
     public bool canTransitionState;
@@ -39,7 +39,8 @@ public class meleeAttackManager : MonoBehaviour
     }
     private void CheckInput()
     {
-        if (Input.GetButtonDown("Fire2") && canAction)    
+
+        if (Input.GetButtonDown("Fire2") && canAction && isStuck == false)    
         {
              
             meleeAttack = true;
@@ -53,6 +54,14 @@ public class meleeAttackManager : MonoBehaviour
             }
             
         }
+        else if (Input.GetButtonDown("Fire2") && isStuck)
+        {
+            isStuck = false;
+            canAction = true;
+            charecterController.canBypassJump = false;
+            rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+        }
+
         else if (Input.GetButtonDown("Fire2") && canTransitionState)
         {
             bool canTrans = anim.GetBool("CanTransition");
