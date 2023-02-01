@@ -21,6 +21,7 @@ public class meleeAttackManager : MonoBehaviour
     private Rigidbody2D rb;
     public bool canTransitionState;
     public float timeCantTransition;
+    public GameObject gameManager;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -28,12 +29,17 @@ public class meleeAttackManager : MonoBehaviour
         canAction = true;
         anim = player.GetComponentInChildren<Animator>();
         charecterController = GetComponent<CharecterController>();
+        gameManager = GameObject.Find("GameManager");
+        
     }
     private void Update()
     {
 
-        CheckInput();
-       
+        
+        if(gameManager.GetComponent<GameManager>().isFlipped)
+        {
+             CheckInput();
+        }
 
 
     }
@@ -71,6 +77,9 @@ public class meleeAttackManager : MonoBehaviour
             bool upAttackAir = anim.GetBool("UpwardAttackAir");
             bool jump = anim.GetBool("Jump");
             bool run = anim.GetBool("Run");
+            bool sideDash = anim.GetBool("SideDash");
+            bool upDash = anim.GetBool("UpDash");
+            bool downDash = anim.GetBool("DownDash");
             StartCoroutine(AttackNoAction());
            /* if(canTrans && forAttack && Input.GetAxis("Vertical") != 0)
             {
@@ -144,7 +153,55 @@ public class meleeAttackManager : MonoBehaviour
             //meleeAnimator.SetBool("Idle2", true);
 
         }
-        if (charecterController.isGrounded )
+        if (meleeAttack && Input.GetAxis("Vertical") > 0 && charecterController.isGrounded)
+        {
+
+            anim.SetBool("UpwardAttack", true);
+            meleeAnimator.SetTrigger("AttackUp");
+
+
+        }
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Vertical") == 0 && meleeAttack == false)
+        {
+
+            anim.SetTrigger("SideDash");
+        }
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
+        {
+            anim.SetTrigger("SideDash");
+        }
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0)
+        {
+            anim.SetTrigger("SideDash");
+        }
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
+        {
+            anim.SetTrigger("SideDash");
+        }
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0)
+        {
+            anim.SetTrigger("SideDash");
+        }
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0)
+        {
+            anim.SetTrigger("UpDash");
+            if (charecterController.isGrounded)
+            {
+                anim.ResetTrigger("UpDash");
+                anim.SetTrigger("SideDash");
+            }
+        }
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
+        {
+
+            anim.SetTrigger("DownDash");
+            if (charecterController.isGrounded)
+            {
+                anim.ResetTrigger("DownDash");
+                anim.SetTrigger("SideDash");
+            }
+        }
+        if (charecterController.isGrounded && meleeAttack == false)
         {
 
             resetBadAnim();
@@ -164,6 +221,8 @@ public class meleeAttackManager : MonoBehaviour
         anim.ResetTrigger("UpwardAttackAir");
         meleeAnimator.ResetTrigger("AttackUpAir");
         meleeAnimator.ResetTrigger("AttackDown");
+        anim.ResetTrigger("UpDash");
+        anim.ResetTrigger("DownDash");
         //meleeAnimator.SetBool("Idle2", true);
 
     }
