@@ -60,7 +60,10 @@ public class EnemyController : MonoBehaviour
             jumpTimer -= Time.deltaTime;
         }
         Checkwalls();
-        LookForPlayer();
+        if (!attackMode)
+        {
+            LookForPlayer();
+        }
         if (agroTimer <= 0)
         {
             attackMode = false;
@@ -168,7 +171,6 @@ public class EnemyController : MonoBehaviour
     }
     public void TurnAround()
     {
-        //Debug.Log("turn around");
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         if (transform.localScale.x < 0)
         {
@@ -216,7 +218,6 @@ public class EnemyController : MonoBehaviour
     }
     private void LookForPlayer()
     {
-        
         RaycastHit2D raycastHitPlayerR = Physics2D.Raycast(rayPlayer.transform.position, Vector2.right, playerSearchDistance, playerLayer);
         if (raycastHitPlayerR.collider != null)
         {
@@ -269,6 +270,5 @@ public class EnemyController : MonoBehaviour
                 agroTimer -= Time.deltaTime;
             }
         }
-        
     }
 }
