@@ -55,22 +55,25 @@ public class PlantGoUp : MonoBehaviour
                 Debug.DrawRay(transform.position, Vector2.left * distance, Color.green);
             }
         }
-        RaycastHit2D raycastPlant = Physics2D.Raycast(transform.position, Vector2.up, distance, playerLayer);
-        if(raycastPlant.collider != null)
+        if(!isRotLeft && !isRotRight)
         {
-            Vector2 plantStartPoint;
-            plantStartPoint = transform.position;
-            plantStartPoint.y -= 3;
-            Debug.DrawRay(plantStartPoint, Vector2.up * raycastPlant.distance, Color.red);
-            if (!attacking)
+            RaycastHit2D raycastPlant = Physics2D.Raycast(transform.position, Vector2.up, distance, playerLayer);
+            if (raycastPlant.collider != null)
             {
-                StartCoroutine(SendAttackUp());
+                Vector2 plantStartPoint;
+                plantStartPoint = transform.position;
+                plantStartPoint.y -= 3;
+                Debug.DrawRay(plantStartPoint, Vector2.up * raycastPlant.distance, Color.red);
+                if (!attacking)
+                {
+                    StartCoroutine(SendAttackUp());
+                }
             }
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, Vector2.up * distance, Color.green);
-        }
+            else
+            {
+                Debug.DrawRay(transform.position, Vector2.up * distance, Color.green);
+            }
+        } 
     }
 
     public IEnumerator SendAttackUp()
