@@ -35,19 +35,37 @@ public class ChangeZone : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if (collision.gameObject.name == "player" && inZone)
+        if (gameManager.GetComponent<GameManager>().isFlipped == false)
         {
-            Debug.Log(" Collide with gate");
-            changeZone.inZone = true;
-            inZone = false;
-            if (changeZone.saveZone)
+            if (collision.gameObject.name == "player" && inZone)
             {
-                player.GetComponent<PlayerDataManager>().checkpoint = changeZone.zoneNum;
-                gameManager.GetComponent<SaveFunction>().SavePlayer();
+                Debug.Log(" Collide with gate");
+                changeZone.inZone = true;
+                inZone = false;
+                if (changeZone.saveZone)
+                {
+                    player.GetComponent<PlayerDataManager>().checkpoint = changeZone.zoneNum;
+                    gameManager.GetComponent<SaveFunction>().SavePlayer();
 
+                }
+                //Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
+        else
+        {
+            if(collision.gameObject.name == "player" && !inZone)
+            {
+                Debug.Log(" Collide with gate");
+                changeZone.inZone = false;
+                inZone = true;
+                if (saveZone)
+                {
+                    player.GetComponent<PlayerDataManager>().checkpoint = zoneNum;
+                    gameManager.GetComponent<SaveFunction>().SavePlayer();
 
+                }
+                //Destroy(gameObject);
+            }
+        }
     }
 }
