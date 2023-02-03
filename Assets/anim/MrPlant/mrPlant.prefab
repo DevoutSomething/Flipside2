@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3005810493289671185}
   - component: {fileID: 3005810493289671190}
   - component: {fileID: 3005810493289671189}
+  - component: {fileID: 961255550812729540}
   m_Layer: 7
   m_Name: mrPlant
   m_TagString: Untagged
@@ -153,3 +154,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8790448}
   m_EdgeRadius: 0
+--- !u!114 &961255550812729540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005810493289671186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853fe40b3f1d428438994a1d4cf51759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageable: 1
+  giveUpwardForce: 1
+  bounceCollide: 1
+  giveDashReset: 0
+  health: 1
+  bounceMult: 1.1
