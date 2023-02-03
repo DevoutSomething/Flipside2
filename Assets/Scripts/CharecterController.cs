@@ -396,8 +396,51 @@ public class CharecterController : MonoBehaviour
         if (!isActuallyDashing) {
             beginDashSlow();
         }
-
-
     } 
+    public void AttackDash()
+    {
+        slowDownLength = 2f;
+        canResetDash = false;
+        canDash = false;
+        isDashing = true;
+        MeleeAttackManager.canAction = false;
+        beginDashSlow();
+        StartCoroutine(AutoDashSlow());
+    }
+    private IEnumerator AutoDashSlow()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        AutoDash();
+    }
+    private void AutoDash()
+    {
+        hasDashedAir = true;
+        slowDownLength = 2;
+        isDashing = false;
+        isActuallyDashing = true;
+        dashingDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (dashingDir == Vector2.zero)
+        {
+            if (FacingRight)
+            {
+                dashingDir = new Vector2(1, 0);
+            }
+            else
+            {
+                dashingDir = new Vector2(-1, 0);
+            }
+        }
+        timeManager.ResetTime();
+        cameraController.FinishedDash();
+        isDashing = false;
+        slowDownLength = 2f;
+        StartCoroutine(StopDashing());
+        if (isActuallyDashing)
+        {
+            rb.velocity = dashingDir.normalized * dashSpeed;
+            return;
+        }
+    }
 }
 

@@ -46,6 +46,10 @@ public class meleeAttack : MonoBehaviour
         {
             HandleCollision(collision.GetComponent<enemyHealth>());
             enemiesKilled.Add(collision.gameObject);
+            if (collision.GetComponent<enemyHealth>().makePlayerDash)
+            {
+                characterController.AttackDash();            
+            }
         }
     }
     void HandleCollision(enemyHealth objHealth)

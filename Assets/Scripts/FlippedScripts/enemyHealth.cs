@@ -11,6 +11,7 @@ public class enemyHealth : MonoBehaviour
     public int health = 1;
     public float bounceMult;
     private int currentHealth;
+    public bool makePlayerDash;
     private void Start()
     {
             currentHealth = health;
