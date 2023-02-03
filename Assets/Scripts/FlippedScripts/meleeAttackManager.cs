@@ -22,6 +22,7 @@ public class meleeAttackManager : MonoBehaviour
     public bool canTransitionState;
     public float timeCantTransition;
     public GameObject gameManager;
+    private float baseSpeed = 0f;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -30,13 +31,13 @@ public class meleeAttackManager : MonoBehaviour
         anim = player.GetComponentInChildren<Animator>();
         charecterController = GetComponent<CharecterController>();
         gameManager = GameObject.Find("GameManager");
-        
+        baseSpeed = charecterController.moveSpeed;
+
+
     }
     private void Update()
-    {
-
-        
-        if(gameManager.GetComponent<GameManager>().isFlipped)
+    { 
+        if (gameManager.GetComponent<GameManager>().isFlipped)
         {
              CheckInput();
         }
@@ -80,6 +81,7 @@ public class meleeAttackManager : MonoBehaviour
             bool sideDash = anim.GetBool("SideDash");
             bool upDash = anim.GetBool("UpDash");
             bool downDash = anim.GetBool("DownDash");
+            bool crouch = anim.GetBool("Crouch");
             StartCoroutine(AttackNoAction());
            /* if(canTrans && forAttack && Input.GetAxis("Vertical") != 0)
             {
@@ -200,6 +202,18 @@ public class meleeAttackManager : MonoBehaviour
                 anim.ResetTrigger("DownDash");
                 anim.SetTrigger("SideDash");
             }
+        }
+        
+        if (Input.GetAxis("Vertical") < 0 && charecterController.isGrounded && meleeAttack == false && Input.GetButtonDown("Crouch"))
+        {
+           
+            anim.SetBool("Crouch", true);
+            charecterController.moveSpeed = 0.1f; 
+        }
+        if (Input.GetButtonUp("Crouch"))
+        {
+            anim.SetBool("Crouch", false);
+            charecterController.moveSpeed = baseSpeed;
         }
         if (charecterController.isGrounded && meleeAttack == false)
         {
