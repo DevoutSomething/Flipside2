@@ -163,28 +163,28 @@ public class meleeAttackManager : MonoBehaviour
 
 
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Vertical") == 0 && meleeAttack == false)
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Vertical") == 0 && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
 
             anim.SetTrigger("SideDash");
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             anim.SetTrigger("SideDash");
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0)
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             anim.SetTrigger("SideDash");
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             anim.SetTrigger("SideDash");
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0)
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == false) 
         {
             anim.SetTrigger("SideDash");
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0)
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             anim.SetTrigger("UpDash");
             if (charecterController.isGrounded)
@@ -193,7 +193,7 @@ public class meleeAttackManager : MonoBehaviour
                 anim.SetTrigger("SideDash");
             }
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
 
             anim.SetTrigger("DownDash");
