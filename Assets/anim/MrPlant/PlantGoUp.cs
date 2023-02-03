@@ -8,7 +8,7 @@ public class PlantGoUp : MonoBehaviour
     public GameObject gameManger;
     public Animator plantAnim;
     public float distance = 6f;
-    private bool attacking;
+    [SerializeField] private bool attacking;
     public float timeNoTarget = .5f;
     void Start()
     {
