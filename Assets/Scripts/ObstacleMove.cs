@@ -12,7 +12,9 @@ public class ObstacleMove : MonoBehaviour
     private Vector2 pos2;
     public bool moveX;
     public bool moveY;
-    
+    [SerializeField] private bool playerOnPlatform;
+    public GameObject player;
+    public LayerMask playerLayer;
     private void Start()
     {
         movingToPos1 = true;
@@ -58,11 +60,21 @@ public class ObstacleMove : MonoBehaviour
             {
                 Vector3 targetPosition = pos1;
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                if (playerOnPlatform)
+                {
+                    Vector3 playerOffset = transform.position - player.transform.position;
+                    player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
+                }
             }
             if (!movingToPos1)
             {
                 Vector3 targetPosition = pos2;
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                if (playerOnPlatform)
+                {
+                    Vector3 playerOffset = transform.position - player.transform.position;
+                    player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
+                }
             }
             if (transform.position.x >= pos1.x - 0.1)
             {
@@ -73,7 +85,21 @@ public class ObstacleMove : MonoBehaviour
                 movingToPos1 = true;
             }
         }
-
-        
+        Vector2 rayPos;
+        rayPos = transform.position;
+        rayPos.x = transform.position.x - 1.5f;
+        rayPos.y = transform.position.y + 1f;
+        RaycastHit2D raycastPlayer = Physics2D.Raycast(rayPos, Vector2.right, 3, playerLayer);
+        if (raycastPlayer.collider != null)
+        {
+            Debug.DrawRay(rayPos, Vector2.right * raycastPlayer.distance, Color.red);
+            playerOnPlatform = true;
+        }
+        else
+        {
+            Debug.DrawRay(rayPos, Vector2.right * 3, Color.green);
+            playerOnPlatform = false;
+        }
     }
+    
 }
