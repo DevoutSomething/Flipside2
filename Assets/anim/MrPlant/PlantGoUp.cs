@@ -12,6 +12,7 @@ public class PlantGoUp : MonoBehaviour
     public float timeNoTarget = .5f;
     public bool isRotRight;
     public bool isRotLeft;
+    public bool isRotDown;
     void Start()
     {
         attacking = false;
@@ -37,6 +38,7 @@ public class PlantGoUp : MonoBehaviour
                 Debug.DrawRay(transform.position, Vector2.right * distance, Color.green);
             }
         }
+       
         if (isRotLeft)
         {
             RaycastHit2D raycastPlantLeft = Physics2D.Raycast(transform.position, Vector2.left, distance, playerLayer);
@@ -55,7 +57,26 @@ public class PlantGoUp : MonoBehaviour
                 Debug.DrawRay(transform.position, Vector2.left * distance, Color.green);
             }
         }
-        if(!isRotLeft && !isRotRight)
+        if (isRotDown)
+        {
+            RaycastHit2D raycastPlantDown = Physics2D.Raycast(transform.position, Vector2.down, distance, playerLayer);
+            if (raycastPlantDown.collider != null)
+            {
+                Vector2 plantStartPoint;
+                plantStartPoint = transform.position;
+                plantStartPoint.y += 3;
+                Debug.DrawRay(plantStartPoint, Vector2.down * raycastPlantDown.distance, Color.red);
+                if (!attacking)
+                {
+                    StartCoroutine(SendAttackUp());
+                }
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, Vector2.up * distance, Color.green);
+            }
+        }
+        if (!isRotLeft && !isRotRight && !isRotDown)
         {
             RaycastHit2D raycastPlant = Physics2D.Raycast(transform.position, Vector2.up, distance, playerLayer);
             if (raycastPlant.collider != null)
