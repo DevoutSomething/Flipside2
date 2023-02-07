@@ -212,7 +212,7 @@ public class meleeAttackManager : MonoBehaviour
             if (charecterController.isGrounded)
             {
                 anim.ResetTrigger("DownDash");
-                anim.SetTrigger("SideDash");
+                
             }
         }
 
