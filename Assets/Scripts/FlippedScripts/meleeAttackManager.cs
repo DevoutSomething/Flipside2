@@ -41,8 +41,7 @@ public class meleeAttackManager : MonoBehaviour
         {
              CheckInput();
         }
-
-
+        checkDash();
     }
     private void CheckInput()
     {
@@ -163,6 +162,19 @@ public class meleeAttackManager : MonoBehaviour
 
 
         }
+        
+        if (charecterController.isGrounded && meleeAttack == false)
+        {
+
+            resetBadAnim();
+          //  Debug.Log("help me");
+
+        }
+
+    }
+
+    private void checkDash()
+    {
         if (Input.GetButtonUp("Dash") && Input.GetAxis("Vertical") == 0 && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
 
@@ -180,7 +192,7 @@ public class meleeAttackManager : MonoBehaviour
         {
             anim.SetTrigger("SideDash");
         }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == false) 
+        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             anim.SetTrigger("SideDash");
         }
@@ -203,12 +215,12 @@ public class meleeAttackManager : MonoBehaviour
                 anim.SetTrigger("SideDash");
             }
         }
-        
+
         if (Input.GetAxis("Vertical") < 0 && charecterController.isGrounded && meleeAttack == false && Input.GetButtonDown("Crouch"))
         {
-           
+
             anim.SetBool("Crouch", true);
-            charecterController.moveSpeed = 0.1f; 
+            charecterController.moveSpeed = 0.1f;
         }
         if (Input.GetButtonUp("Crouch"))
         {
@@ -219,10 +231,9 @@ public class meleeAttackManager : MonoBehaviour
         {
 
             resetBadAnim();
-          //  Debug.Log("help me");
+            //  Debug.Log("help me");
 
         }
-
     }
 
     private void resetBadAnim ()
