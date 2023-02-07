@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public Vector2 respawnPoint;
     private meleeAttackManager MeleeAttackManager;
     public GameObject attackManagerObject;
+    public int currentRoom;
     
     private void Start()
     {
@@ -31,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
             StartDeathTimer();
             playerAnimator.SetBool("Death", true);
             playerAnimator.SetBool("Run", false);
-            playerAnimator.SetBool("jump", false);
+            playerAnimator.SetBool("Jump", false);
 
 
         }

@@ -23,6 +23,14 @@ public class ChangeZone : MonoBehaviour
     }
     private void Update()
     {
+        if (player.GetComponent<PlayerHealth>().currentRoom == zoneNum)
+        {
+            inZone = true;
+        }
+        else
+        {
+            inZone = false;
+        }
         if (inZone)
         {
             Camera.GetComponent<CameraController>().lowerXLimit = camRestrictLeftxDownY.position.x;
@@ -42,6 +50,7 @@ public class ChangeZone : MonoBehaviour
                 Debug.Log(" Collide with gate");
                 changeZone.inZone = true;
                 inZone = false;
+                player.GetComponent<PlayerHealth>().currentRoom = changeZone.zoneNum;
                 if (changeZone.saveZone)
                 {
                     player.GetComponent<PlayerDataManager>().checkpoint = changeZone.zoneNum;
