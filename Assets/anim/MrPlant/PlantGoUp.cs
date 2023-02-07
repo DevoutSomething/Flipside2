@@ -8,7 +8,7 @@ public class PlantGoUp : MonoBehaviour
     public GameObject gameManger;
     public Animator plantAnim;
     public float distance = 6f;
-    [SerializeField] private bool attacking;
+    [SerializeField] public bool attacking;
     public float timeNoTarget = .5f;
     public bool isRotRight;
     public bool isRotLeft;
@@ -31,6 +31,7 @@ public class PlantGoUp : MonoBehaviour
                 if (!attacking)
                 {
                     StartCoroutine(SendAttackUp());
+                    
                 }
             }
             else
