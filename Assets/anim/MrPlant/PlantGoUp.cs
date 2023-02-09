@@ -13,6 +13,7 @@ public class PlantGoUp : MonoBehaviour
     public bool isRotRight;
     public bool isRotLeft;
     public bool isRotDown;
+    public bool isFastyPlant;
     void Start()
     {
         attacking = false;
@@ -101,7 +102,14 @@ public class PlantGoUp : MonoBehaviour
     public IEnumerator SendAttackUp()
     {
         attacking = true;
-        plantAnim.SetTrigger("plantussy");
+        if (isFastyPlant)
+        {
+            plantAnim.SetTrigger("plantussyquick");
+        }
+        else
+        {
+            plantAnim.SetTrigger("plantussy");
+        }
         yield return new WaitForSecondsRealtime(timeNoTarget);
         attacking = false;
     }
