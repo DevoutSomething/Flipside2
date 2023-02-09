@@ -54,11 +54,14 @@ public class PlayerHealth : MonoBehaviour
 
     void RespawnPlayer()
     {
+        GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.GetComponent<roomReset>().restartroom(currentRoom);
         death = false;
         playerAnimator.SetBool("Death", false);
         gameObject.transform.position = respawnPoint;
         TempHealth = 1;
         MeleeAttackManager.canAction = true;
+        
         GameObject[] enemies = attackManagerObject.GetComponent<meleeAttack>().enemiesKilled.ToArray();
         foreach (GameObject Enemy in enemies)
         {

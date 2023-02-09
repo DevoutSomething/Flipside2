@@ -46,7 +46,7 @@ public class meleeAttackManager : MonoBehaviour
     private void CheckInput()
     {
 
-        if (Input.GetButtonDown("Fire2") && canAction && isStuck == false)    
+        if (Input.GetButtonDown("Fire2") && canAction)    
         {
              
             meleeAttack = true;
@@ -59,13 +59,6 @@ public class meleeAttackManager : MonoBehaviour
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
             
-        }
-        else if (Input.GetButtonDown("Fire2") && isStuck)
-        {
-            isStuck = false;
-            canAction = true;
-            charecterController.canBypassJump = false;
-            rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
         }
 
         else if (Input.GetButtonDown("Fire2") && canTransitionState)

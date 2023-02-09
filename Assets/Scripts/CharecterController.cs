@@ -87,6 +87,26 @@ public class CharecterController : MonoBehaviour
     }
     private void Update()
     {
+        //If stuck and can't action bug fix
+        if (rb.constraints == RigidbodyConstraints2D.FreezePosition)
+        {
+            if (Input.GetButtonDown("Dash") || Input.GetButtonDown("Fire2"))
+            {
+                if (MeleeAttackManager.isStuck == true && MeleeAttackManager.canAction == false)
+                {
+                    rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+                    canBypassJump = false;
+                    MeleeAttackManager.isStuck = false;
+                    canJump = true;
+                    MeleeAttackManager.canAction = true;
+                }
+            }
+            else if (Input.GetButtonDown("Jump"))
+            {
+                JumpInput();
+                MeleeAttackManager.canAction = true;
+            }
+        }
         if (gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             Side1 = true;
@@ -188,21 +208,7 @@ public class CharecterController : MonoBehaviour
   
             if (Input.GetButtonDown("Jump") && lastTimeGrounded < CoyoteTime && !isJumping && jumpBufferTemp <= 0 && !isActuallyDashing && canJump || Input.GetButtonDown("Jump") && isGrounded && lastTimeGrounded < CoyoteTime && !isJumping && canJump || canBypassJump && Input.GetButtonDown("Jump") && !isJumping && MeleeAttackManager.isStuck)
             {
-                if(canBypassJump == true)
-                {
-                    rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
-                    MeleeAttackManager.isStuck = false;
-                    canBypassJump = false;
-
-                    Debug.Log("resetStick");
-                }
-                canJump = false;
-                isJumping = true;
-                canResetJump = false;
-                StartCoroutine(CanJumpReset());
-                Jump();
-                Debug.Log("jumped no buffer");
-                
+                JumpInput();
             }
             if (jumpBufferTemp > 0 && !isJumping)
             {
@@ -266,6 +272,18 @@ public class CharecterController : MonoBehaviour
         #endregion
 
 
+    }
+    private void JumpInput()
+    {
+        rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+        canBypassJump = false;
+        MeleeAttackManager.isStuck = false;
+        canJump = false;
+        isJumping = true;
+        canResetJump = false;
+        StartCoroutine(CanJumpReset());
+        Jump();
+        Debug.Log("jumped no buffer");
     }
     private void Jump()
     {

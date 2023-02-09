@@ -8,6 +8,7 @@ public class roomReset : MonoBehaviour
     public List<GameObject> thingsToReset;
     public List<Vector3> locatons;
     public bool ResetRoom;
+    public int RoomNum;
 
     void Start()
     {
@@ -26,10 +27,10 @@ public class roomReset : MonoBehaviour
         if (ResetRoom)
         {
             ResetRoom = false;
-            restartroom();
+            restartroom(RoomNum);
         }
     }
-    public void restartroom()
+    public void restartroom(int roomNum)
     {
         for (int i = 0; i < thingsToReset.Count; i++)
         {

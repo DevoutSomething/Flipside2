@@ -5,6 +5,7 @@ using UnityEngine;
 public class stickToWall : MonoBehaviour
 {
     private GameObject player;
+    private bool canStick = true;
     private void Start()
     {
         player = GameObject.Find("player");
@@ -12,7 +13,7 @@ public class stickToWall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "meleeAnim")
+        if (collision.gameObject.name == "meleeAnim" && canStick)
         {
             Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
             player.GetComponent<meleeAttackManager>().canAction = false;
@@ -24,7 +25,19 @@ public class stickToWall : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
             rb.velocity = new Vector3(0, 0, 0);
             Debug.Log("playerHitStickWall");
-            return;
+            canStick = false;
+            
+            StartCoroutine(ResetCanSticky());
         }
+        else if (collision.gameObject.name == "player")
+        {
+            Debug.Log("Player Hit Block");
+        }
+    }
+
+    public IEnumerator ResetCanSticky()
+    {
+        yield return new WaitForSecondsRealtime(.3f);
+        canStick = true;
     }
 }
