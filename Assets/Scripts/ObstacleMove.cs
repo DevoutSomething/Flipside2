@@ -15,74 +15,84 @@ public class ObstacleMove : MonoBehaviour
     [SerializeField] private bool playerOnPlatform;
     public GameObject player;
     public LayerMask playerLayer;
+    public int room;
+    public bool moveWithPlayer;
+    private bool hasTouchedPlayer = false;
+    private Vector2 startPos;
     private void Start()
     {
+        startPos = transform.position;
         movingToPos1 = true;
         pos1 = object1.transform.position;
         pos2 = object2.transform.position;
-
     }
     void Update()
     {
-        float newSpeed;
-        if (moveX || moveY)
+        if (GameObject.Find("player").GetComponent<PlayerHealth>().currentRoom == room)
         {
-            newSpeed = speed;
-        }
-        if (moveX && moveY)
-        {
-            newSpeed = speed / 2;
-        }
-        if (moveY)
-        {
-            if (movingToPos1)
+            if (!moveWithPlayer || hasTouchedPlayer)
             {
-                Vector3 targetPosition = pos1;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            }
-            if (!movingToPos1)
-            {
-                Vector3 targetPosition = pos2;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            }
-            if (transform.position.y >= pos1.y - 0.1)
-            {
-                movingToPos1 = false;
-            }
-            if (transform.position.y <= pos2.y + 0.1)
-            {
-                movingToPos1 = true;
-            }
-        }
-        if (moveX)
-        {
-            if (movingToPos1)
-            {
-                Vector3 targetPosition = pos1;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-                if (playerOnPlatform)
+                float newSpeed;
+                if (moveX || moveY)
                 {
-                    Vector3 playerOffset = transform.position - player.transform.position;
-                    player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
+                    newSpeed = speed;
                 }
-            }
-            if (!movingToPos1)
-            {
-                Vector3 targetPosition = pos2;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-                if (playerOnPlatform)
+                if (moveX && moveY)
                 {
-                    Vector3 playerOffset = transform.position - player.transform.position;
-                    player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
+                    newSpeed = speed / 2;
                 }
-            }
-            if (transform.position.x >= pos1.x - 0.1)
-            {
-                movingToPos1 = false;
-            }
-            if (transform.position.x <= pos2.x + 0.1)
-            {
-                movingToPos1 = true;
+                if (moveY)
+                {
+                    if (movingToPos1)
+                    {
+                        Vector3 targetPosition = pos1;
+                        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                    }
+                    if (!movingToPos1)
+                    {
+                        Vector3 targetPosition = pos2;
+                        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                    }
+                    if (transform.position.y >= pos1.y - 0.1)
+                    {
+                        movingToPos1 = false;
+                    }
+                    if (transform.position.y <= pos2.y + 0.1)
+                    {
+                        movingToPos1 = true;
+                    }
+                }
+                if (moveX)
+                {
+                    if (movingToPos1)
+                    {
+                        Vector3 targetPosition = pos1;
+                        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                        if (playerOnPlatform)
+                        {
+                            Vector3 playerOffset = transform.position - player.transform.position;
+                            player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
+                        }
+                    }
+                    if (!movingToPos1)
+                    {
+                        Vector3 targetPosition = pos2;
+                        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+                        if (playerOnPlatform)
+                        {
+                            Vector3 playerOffset = transform.position - player.transform.position;
+                            player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
+                        }
+                    }
+                    if (transform.position.x >= pos1.x - 0.1)
+                    {
+                        movingToPos1 = false;
+                    }
+                    if (transform.position.x <= pos2.x + 0.1)
+                    {
+                        movingToPos1 = true;
+                    }
+                }
             }
         }
         Vector2 rayPos;
@@ -94,6 +104,7 @@ public class ObstacleMove : MonoBehaviour
         {
             Debug.DrawRay(rayPos, Vector2.right * raycastPlayer.distance, Color.red);
             playerOnPlatform = true;
+            hasTouchedPlayer = true;
         }
         else
         {
@@ -101,5 +112,11 @@ public class ObstacleMove : MonoBehaviour
             playerOnPlatform = false;
         }
     }
-    
+    public void Reset()
+    {
+        transform.position = startPos;
+        movingToPos1 = true;
+        hasTouchedPlayer = false;
+    }
+
 }
