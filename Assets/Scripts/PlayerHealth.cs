@@ -23,6 +23,15 @@ public class PlayerHealth : MonoBehaviour
         MeleeAttackManager = gameObject.GetComponent<meleeAttackManager>();
         deathTimerTEMP = deathTimer;
         respawnPoint = spawnPoint.transform.position;
+        GameObject[] Rooms = GameObject.FindGameObjectsWithTag("room");
+        foreach (GameObject room in Rooms)
+        {
+            if (room.GetComponent<ChangeZone>().zoneNum == currentRoom)
+            {
+                transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
+            }
+        }
+        
     }
     private void Update()
     {
@@ -67,6 +76,11 @@ public class PlayerHealth : MonoBehaviour
         {
         Enemy.GetComponent<enemyHealth>().PlayerDied();
         }
+        GameObject[] movingBlocks = GameObject.FindGameObjectsWithTag("movingBlock");
+        foreach (GameObject Block in movingBlocks)
+        {
+            Block.GetComponent<ObstacleMove>().Reset();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -76,11 +90,11 @@ public class PlayerHealth : MonoBehaviour
             TempHealth -= 1;
         }
     }
-    /*private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("obstacle"))
         {
             TempHealth -= 1;
         }
-    }*/
+    }
 }

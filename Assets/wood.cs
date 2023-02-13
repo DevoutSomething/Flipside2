@@ -12,33 +12,24 @@ public class wood : MonoBehaviour
         bool logBreak = anim.GetBool("LogBreak");
         bool logBreak2 = anim.GetBool("LogBreak2");
         bool logBreakgone = anim.GetBool("Gone");
-        anim.SetBool("LogBreak", true);
         Debug.Log("pain");
+        anim.SetBool("LogBreak", false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("m"))
-        {
-            anim.SetBool("LogBreak2", true);
-            anim.SetBool("LogBreak", false);
-            Debug.Log("pain2");
-        }
-        if (Input.GetKeyDown("n"))
-        {
-            anim.SetBool("Gone", true);
-            anim.SetBool("LogBreak2", false);
-            Debug.Log("pain3");
-        }
-        if (Input.GetKeyDown("b"))
-        {
-            anim.SetBool("LogBreak", true);
-            anim.SetBool("Gone", false);
-            Debug.Log("pain4");
-        }
+        
 
 
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        anim.SetBool("LogBreak", true);
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        anim.SetBool("LogBreak", false);
     }
 }

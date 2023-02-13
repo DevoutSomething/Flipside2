@@ -7,6 +7,8 @@ TagManager:
   - ground
   - playerAttack
   - Projectile
+  - movingBlock
+  - room
   layers:
   - Default
   - TransparentFX

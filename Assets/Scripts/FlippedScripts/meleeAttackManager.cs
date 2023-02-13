@@ -214,6 +214,7 @@ public class meleeAttackManager : MonoBehaviour
 
             anim.SetBool("Crouch", true);
             charecterController.moveSpeed = 0.1f;
+
         }
         if (Input.GetButtonUp("Crouch"))
         {
