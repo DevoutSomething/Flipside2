@@ -4,32 +4,74 @@ using UnityEngine;
 
 public class wood : MonoBehaviour
 {
-    public GameObject Log;
-    private Animator anim;
-    void Start()
+    public Sprite woodBroken;
+    public Sprite woodNormal;
+    public float TimeToBreak;
+    public float TimeToErase;
+    public float TimeToRespawn;
+    public List<GameObject> logs;
+
+
+    private void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
-        bool logBreak = anim.GetBool("LogBreak");
-        bool logBreak2 = anim.GetBool("LogBreak2");
-        bool logBreakgone = anim.GetBool("Gone");
-        Debug.Log("pain");
-        anim.SetBool("LogBreak", false);
+        foreach (Transform child in transform)
+        {
+            logs.Add(child.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-
-
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        anim.SetBool("LogBreak", true);
+        foreach (GameObject log in logs)
+        {
+            StartCoroutine(BreakLog(log));
+        }
+
     }
-    private void OnCollisionExit2D(Collision2D collision)
+
+    public IEnumerator BreakLog(GameObject log)
     {
-        anim.SetBool("LogBreak", false);
+        yield return new WaitForSecondsRealtime(TimeToBreak);
+        log.GetComponent<SpriteRenderer>().sprite = (woodBroken);
+        StartCoroutine(EraseLog(log));
     }
+
+    public IEnumerator EraseLog(GameObject log)
+    {
+        yield return new WaitForSecondsRealtime(TimeToErase);
+        log.SetActive(false);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(RespawnLog(log));
+
+
+    }
+    public IEnumerator RespawnLog(GameObject log)
+    {
+        yield return new WaitForSecondsRealtime(TimeToRespawn);
+        log.SetActive(true);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        log.GetComponent<SpriteRenderer>().sprite = (woodNormal);
+
+
+    }
+
+    public void Reset()
+    {
+        StopAllCoroutines();
+        foreach (GameObject log in logs)
+        {
+            log.SetActive(true);
+            log.GetComponent<SpriteRenderer>().sprite = (woodNormal);
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
+    }
+
+
+
+
+
+
+
+
+
 }
