@@ -65,13 +65,4 @@ public class wood : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
-
-
-
-
-
-
-
-
-
 }
