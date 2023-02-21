@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private BoxCollider2D boxCollider2d;
+    private GameObject gameManager;
     [Header("Layers")]
     public LayerMask groundLayer;
     public LayerMask playerLayer;
@@ -44,12 +45,14 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager");
         rb = gameObject.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
         turnTimer = 0;
     }
     void Update()
     {
+       
         MoveForward();
         if (turnTimer > 0)
         {
@@ -60,7 +63,7 @@ public class EnemyController : MonoBehaviour
             jumpTimer -= Time.deltaTime;
         }
         Checkwalls();
-        if (!attackMode)
+        if (!attackMode && gameManager.GetComponent<GameManager>().isFlipped)
         {
             LookForPlayer();
         }
