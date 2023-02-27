@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneLoader : MonoBehaviour
+public class Sceneloader : MonoBehaviour
 {
     [SerializeField] int currentLevelIndex = 0;
     void Start()
