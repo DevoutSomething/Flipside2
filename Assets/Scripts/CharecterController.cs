@@ -13,6 +13,7 @@ public class CharecterController : MonoBehaviour
     private float adjustMoveSpeed = .4f; 
     public float acceleration;
     public float decceleration;
+    private float deccelerationPerm;
     public float velocityPoweer;
     public float friction;
     public bool facingForward;
@@ -87,6 +88,7 @@ public class CharecterController : MonoBehaviour
         canDash = true;
         canResetJump = true;
         gameManager = GameObject.Find("GameManager");
+        deccelerationPerm = decceleration;
     }
     private void Update()
     {
@@ -320,8 +322,9 @@ public class CharecterController : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.Raycast(boxCollider2d.bounds.center, Vector2.down, boxCollider2d.bounds.extents.y + 0.05f, groundLayer);
         
-        if (raycastHit.collider != null && raycastHit.collider.tag != "stickGround")
+        if (raycastHit.collider != null && raycastHit.collider.tag != "stickGround" && raycastHit.collider.tag != "slideGround")
         {
+            decceleration = deccelerationPerm;
             lastTimeGrounded = 0;
             isGrounded = true;
             isStuck = false;
@@ -336,8 +339,24 @@ public class CharecterController : MonoBehaviour
         }
         else if(raycastHit.collider != null && raycastHit.collider.tag == "stickGround")
         {
+            decceleration = deccelerationPerm;
             isStuck = true;
             isGrounded = true;
+            if (canResetJump)
+            {
+                canJump = true;
+            }
+            if (canResetDash)
+            {
+                canDash = true;
+            }
+        }
+        else if (raycastHit.collider != null && raycastHit.collider.tag == "slideGround")
+        {
+            lastTimeGrounded = 0;
+            isGrounded = true;
+            isStuck = false;
+            decceleration = deccelerationPerm * .1f;
             if (canResetJump)
             {
                 canJump = true;
