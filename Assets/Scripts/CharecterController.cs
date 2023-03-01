@@ -10,7 +10,7 @@ public class CharecterController : MonoBehaviour
     [Header("Speed")]
     public float moveSpeed;
     private float targetSpeed;
-    private float adjustMoveSpeed = .6f; 
+    private float adjustMoveSpeed = .4f; 
     public float acceleration;
     public float decceleration;
     public float velocityPoweer;
@@ -334,17 +334,26 @@ public class CharecterController : MonoBehaviour
                 canDash = true;
             }
         }
+        else if(raycastHit.collider != null && raycastHit.collider.tag == "stickGround")
+        {
+            isStuck = true;
+            isGrounded = true;
+            if (canResetJump)
+            {
+                canJump = true;
+            }
+            if (canResetDash)
+            {
+                canDash = true;
+            }
+        }
         else if (!isGrounded)
         {
             //Debug.Log(raycastHit.collider);
             lastTimeGrounded += Time.deltaTime;
             hasDashedAir = false;
         }
-        else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("stickyGround"))
-        {
-            canJump = false;
-            canDash = true;
-        }
+        
         else
         {
             isGrounded = false;
@@ -352,27 +361,7 @@ public class CharecterController : MonoBehaviour
     
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (colideWithTilemap)
-        {
-            if (col.collider.gameObject.layer == LayerMask.NameToLayer("ground"))
-            {
-                lastTimeGrounded = 0;
-                isGrounded = true;
-                canDash = true;
-                isStuck = false;
-
-            }
-            if (col.collider.gameObject.layer == LayerMask.NameToLayer("stickyGround"))
-            {
-                isGrounded = true;
-                canDash = true;
-                isStuck = true;
-            }
-        }
-        
-    }
+   
     private void OnCollisionExit2D(Collision2D col)
     {
         if (colideWithTilemap)
@@ -381,8 +370,9 @@ public class CharecterController : MonoBehaviour
             {
                 lastTimeGrounded = 0;
                 isGrounded = false;
+                Debug.Log("I hate bed");
             }
-            if (col.collider.gameObject.layer == LayerMask.NameToLayer("stickyGround"))
+            if (col.collider.gameObject.tag == "stickGround")
             {
                 isStuck = false;
             }
