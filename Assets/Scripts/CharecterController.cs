@@ -9,11 +9,14 @@ public class CharecterController : MonoBehaviour
     public bool colideWithTilemap;
     [Header("Speed")]
     public float moveSpeed;
+    private float targetSpeed;
+    private float adjustMoveSpeed = .6f; 
     public float acceleration;
     public float decceleration;
     public float velocityPoweer;
     public float friction;
     public bool facingForward;
+    public bool isStuck;
 
     [Header("Jump")]
     public float jumpForce;
@@ -206,7 +209,8 @@ public class CharecterController : MonoBehaviour
  
             #region Jump
   
-            if (Input.GetButtonDown("Jump") && lastTimeGrounded < CoyoteTime && !isJumping && jumpBufferTemp <= 0 && !isActuallyDashing && canJump || Input.GetButtonDown("Jump") && isGrounded && lastTimeGrounded < CoyoteTime && !isJumping && canJump || canBypassJump && Input.GetButtonDown("Jump") && !isJumping && MeleeAttackManager.isStuck)
+            
+            if (Input.GetButtonDown("Jump") && lastTimeGrounded < CoyoteTime && !isJumping && jumpBufferTemp <= 0 && !isActuallyDashing && canJump &&  !isStuck || Input.GetButtonDown("Jump") && isGrounded && lastTimeGrounded < CoyoteTime && !isJumping && canJump || canBypassJump && Input.GetButtonDown("Jump") && !isJumping && MeleeAttackManager.isStuck && !isStuck)
             {
                 JumpInput();
             }
@@ -247,10 +251,19 @@ public class CharecterController : MonoBehaviour
         {
             slowDownLength -= Time.unscaledDeltaTime;
         }
+
         if (MeleeAttackManager.canAction && MeleeAttackManager.canAttack)
         {
+            if (isStuck)
+            {
+                targetSpeed = moveDirection * moveSpeed * adjustMoveSpeed;
+
+            }
+            else
+            {
+                targetSpeed = moveDirection * moveSpeed;
+            }
             #region Speed
-            float targetSpeed = moveDirection * moveSpeed;
             float speedDiff = targetSpeed - rb.velocity.x;
             //? = if statement
             float accelerationRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
@@ -307,10 +320,11 @@ public class CharecterController : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.Raycast(boxCollider2d.bounds.center, Vector2.down, boxCollider2d.bounds.extents.y + 0.05f, groundLayer);
         
-        if (raycastHit.collider != null)
+        if (raycastHit.collider != null && raycastHit.collider.tag != "stickGround")
         {
             lastTimeGrounded = 0;
             isGrounded = true;
+            isStuck = false;
             if (canResetJump)
             {
                 canJump = true;
@@ -325,6 +339,11 @@ public class CharecterController : MonoBehaviour
             //Debug.Log(raycastHit.collider);
             lastTimeGrounded += Time.deltaTime;
             hasDashedAir = false;
+        }
+        else if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("stickyGround"))
+        {
+            canJump = false;
+            canDash = true;
         }
         else
         {
@@ -342,6 +361,14 @@ public class CharecterController : MonoBehaviour
                 lastTimeGrounded = 0;
                 isGrounded = true;
                 canDash = true;
+                isStuck = false;
+
+            }
+            if (col.collider.gameObject.layer == LayerMask.NameToLayer("stickyGround"))
+            {
+                isGrounded = true;
+                canDash = true;
+                isStuck = true;
             }
         }
         
@@ -354,6 +381,10 @@ public class CharecterController : MonoBehaviour
             {
                 lastTimeGrounded = 0;
                 isGrounded = false;
+            }
+            if (col.collider.gameObject.layer == LayerMask.NameToLayer("stickyGround"))
+            {
+                isStuck = false;
             }
         }
     }
