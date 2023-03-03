@@ -31,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
                 transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
             }
         }
-        
     }
     private void Update()
     {
@@ -42,8 +41,6 @@ public class PlayerHealth : MonoBehaviour
             playerAnimator.SetBool("Death", true);
             playerAnimator.SetBool("Run", false);
             playerAnimator.SetBool("Jump", false);
-
-
         }
         if (death && deathTimerTEMP >= 0)
         {
@@ -60,7 +57,6 @@ public class PlayerHealth : MonoBehaviour
         death = true;
         deathTimerTEMP = deathTimer;
     }
-
     void RespawnPlayer()
     {
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
