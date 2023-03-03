@@ -26,7 +26,7 @@ public class ObstacleMove : MonoBehaviour
         pos1 = object1.transform.position;
         pos2 = object2.transform.position;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (GameObject.Find("player").GetComponent<PlayerHealth>().currentRoom == room)
         {
