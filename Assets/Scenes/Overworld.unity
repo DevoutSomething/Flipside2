@@ -7905,7 +7905,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1193295697}
   - component: {fileID: 1193295696}
-  - component: {fileID: 1193295698}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -7957,19 +7956,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1193295698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193295695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ecf24dff3ca0748a80bdee7d4f0c33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLevelIndex: 5
 --- !u!114 &1275304608 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7482546412629861358, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
@@ -8775,5 +8761,7 @@ PrefabInstance:
       propertyPath: DownPin
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8965080219990266372, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
+    - {fileID: 1349207897786804902, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c226fecef1a67f148870da5f2dedb063, type: 3}

@@ -24,19 +24,19 @@ public class MapPoint : MonoBehaviour
     [Header("Image Options")]
     [SerializeField] Sprite unlockedSprite = null;
     [SerializeField] Sprite lockedSprite = null;
-    /*[Header("Level UI Objects")]
+    [Header("Level UI Objects")]
     [SerializeField] TextMeshProUGUI levelText = null;
-    [SerializeField] GameObject levelPanel = null;      */
+    [SerializeField] GameObject levelPanel = null;      
 
     SpriteRenderer spriteRenderer;
 
      void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>(); 
-        /*if (levelPanel != null)
+        if (levelPanel != null)
         {
             levelPanel.SetActive(false);
-        }     */
+        }     
 
         if (!isLevel && !isWarp)
         {
@@ -55,6 +55,7 @@ public class MapPoint : MonoBehaviour
         {
             if (isLevel)
             {
+                Debug.Log(Levelindext);
                 sceneToLoad = DataManager.instance.gameData.lockedLevels[Levelindext].sceneToLoad;
                 isLocked = DataManager.instance.gameData.lockedLevels[Levelindext].isLocked;
             }
@@ -75,7 +76,7 @@ public class MapPoint : MonoBehaviour
         }
     }
 
-   /* private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag  == "Player")
         {
@@ -117,7 +118,7 @@ public class MapPoint : MonoBehaviour
                 levelText.text = "";
             }
         }
-    }   */
+    }   
 
 
 

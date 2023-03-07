@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Sceneloader : MonoBehaviour
 {
@@ -16,6 +18,6 @@ public class Sceneloader : MonoBehaviour
             DataManager.instance.gameData.lockedLevels[currentLevelIndex + 1].isLocked = false;
             DataManager.instance.SaveGameData();
         }
-        //SceneManager.LoadScene("Overworld");
+        SceneManager.LoadScene("Overworld");
     }
 }
