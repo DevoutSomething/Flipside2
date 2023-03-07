@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpikeAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 341842365, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: -258001493, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 587898847, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 457508261, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 655069540, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: -814343397, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: -1823661282, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 906634516, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: -1530700972, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 1071347139, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: -496189169, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: -1152823656, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 745833142, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: -1729140044, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 1670831412, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  - {fileID: 1812059288, guid: 36c4ecb5cc722ea49b0656fc1734fcad, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Spikes_7
+  - Spikes_6
+  - Spikes_5
+  - Spikes_4
+  - Spikes_3
+  - Spikes_2
+  - Spikes_1
+  - Spikes_0
+  - Spikes_9
+  - Spikes_8
+  - Spikes_12
+  - Spikes_13
+  - Spikes_10
+  - Spikes_11
+  - Spikes_14
+  - Spikes_15
+  m_RenderDataMap: {}
+  m_Tag: SpikeAtlas
+  m_IsVariant: 0
