@@ -209,14 +209,15 @@ public class meleeAttackManager : MonoBehaviour
             }
         }
         BoxCollider2D boxcol = player.GetComponent<BoxCollider2D>();
-
+        CircleCollider2D circol = player.GetComponent<CircleCollider2D>(); 
         if (Input.GetAxis("Vertical") < 0 && charecterController.isGrounded && meleeAttack == false && Input.GetButtonDown("Crouch"))
         {
             anim.SetBool("Crouch", true);
             boxcol.size = new Vector2(1.3f, .9f);
             boxcol.offset = new Vector2(.1f, -.35f);
             charecterController.moveSpeed = 0.1f;
-
+            circol.radius = (.45f);
+            circol.offset = new Vector2(.1f, -.35f);
         }
         if (Input.GetButtonUp("Crouch"))
         {
@@ -224,6 +225,10 @@ public class meleeAttackManager : MonoBehaviour
             charecterController.moveSpeed = baseSpeed;
             boxcol.size = new Vector2(1.3f, 1.45f);
             boxcol.offset = new Vector2(.1f, -.07f);
+            circol.radius = (.65f);
+            circol.offset = new Vector2 (.1f, -.14f);
+
+
 
         }
         if (charecterController.isGrounded && meleeAttack == false)
