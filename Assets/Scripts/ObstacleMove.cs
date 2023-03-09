@@ -68,7 +68,7 @@ public class ObstacleMove : MonoBehaviour
                     {
                         Vector3 targetPosition = pos1;
                         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-                        if (playerOnPlatform)
+                        if (playerOnPlatform && moveWithPlayer)
                         {
                             Vector3 playerOffset = transform.position - player.transform.position;
                             player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
@@ -78,7 +78,7 @@ public class ObstacleMove : MonoBehaviour
                     {
                         Vector3 targetPosition = pos2;
                         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-                        if (playerOnPlatform)
+                        if (playerOnPlatform && moveWithPlayer)
                         {
                             Vector3 playerOffset = transform.position - player.transform.position;
                             player.transform.position = Vector3.MoveTowards(transform.position - playerOffset, targetPosition - playerOffset, speed * Time.deltaTime);
@@ -95,22 +95,26 @@ public class ObstacleMove : MonoBehaviour
                 }
             }
         }
-        Vector2 rayPos;
-        rayPos = transform.position;
-        rayPos.x = transform.position.x - 1.5f;
-        rayPos.y = transform.position.y + 1f;
-        RaycastHit2D raycastPlayer = Physics2D.Raycast(rayPos, Vector2.right, 3, playerLayer);
-        if (raycastPlayer.collider != null)
+        if (moveWithPlayer)
         {
-            Debug.DrawRay(rayPos, Vector2.right * raycastPlayer.distance, Color.red);
-            playerOnPlatform = true;
-            hasTouchedPlayer = true;
+            Vector2 rayPos;
+            rayPos = transform.position;
+            rayPos.x = transform.position.x - 1.5f;
+            rayPos.y = transform.position.y + 1f;
+            RaycastHit2D raycastPlayer = Physics2D.Raycast(rayPos, Vector2.right, 3, playerLayer);
+            if (raycastPlayer.collider != null)
+            {
+                Debug.DrawRay(rayPos, Vector2.right * raycastPlayer.distance, Color.red);
+                playerOnPlatform = true;
+                hasTouchedPlayer = true;
+            }
+            else
+            {
+                Debug.DrawRay(rayPos, Vector2.right * 3, Color.green);
+                playerOnPlatform = false;
+            }
         }
-        else
-        {
-            Debug.DrawRay(rayPos, Vector2.right * 3, Color.green);
-            playerOnPlatform = false;
-        }
+        
     }
     public void Reset()
     {
