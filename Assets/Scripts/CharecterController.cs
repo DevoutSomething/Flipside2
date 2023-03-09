@@ -74,6 +74,7 @@ public class CharecterController : MonoBehaviour
     private meleeAttackManager MeleeAttackManager;
     //[Header("Private Variables")]
 
+
     private void Start()
     {
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -394,6 +395,10 @@ public class CharecterController : MonoBehaviour
             if (col.collider.gameObject.tag == "stickGround")
             {
                 isStuck = false;
+            }
+            if (col.collider.gameObject.tag == "cannon")
+            {
+                col.gameObject.GetComponent<cannonController>().PlayerEnterCannon(gameObject);
             }
         }
     }
