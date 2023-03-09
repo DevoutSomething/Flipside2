@@ -31,14 +31,14 @@ public class wood : MonoBehaviour
 
     public IEnumerator BreakLog(GameObject log)
     {
-        yield return new WaitForSecondsRealtime(TimeToBreak);
+        yield return new WaitForSeconds(TimeToBreak);
         log.GetComponent<SpriteRenderer>().sprite = (woodBroken);
         StartCoroutine(EraseLog(log));
     }
 
     public IEnumerator EraseLog(GameObject log)
     {
-        yield return new WaitForSecondsRealtime(TimeToErase);
+        yield return new WaitForSeconds(TimeToErase);
         log.SetActive(false);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(RespawnLog(log));
@@ -47,7 +47,7 @@ public class wood : MonoBehaviour
     }
     public IEnumerator RespawnLog(GameObject log)
     {
-        yield return new WaitForSecondsRealtime(TimeToRespawn);
+        yield return new WaitForSeconds(TimeToRespawn);
         log.SetActive(true);
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         log.GetComponent<SpriteRenderer>().sprite = (woodNormal);
