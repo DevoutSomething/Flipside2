@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 7482546412629861358}
   - component: {fileID: 7012605910654099520}
   - component: {fileID: 7316604640350363643}
-  - component: {fileID: -8965080219990266372}
-  - component: {fileID: 1349207897786804902}
+  - component: {fileID: 3759309303491879925}
   m_Layer: 0
   m_Name: doug_mandell_1
   m_TagString: Untagged
@@ -152,36 +151,19 @@ MonoBehaviour:
   left: {fileID: 0}
   Levelindext: 0
   sceneToLoad: 
-  LevelName: 
+  LevelName: l1
   isLocked: 0
-  isLevel: 0
+  isLevel: 1
   isCorner: 0
   isWarp: 0
   autoWarp: 0
   hasWarped: 0
   warpPoint: {fileID: 0}
-  unlockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 7482667652216324306, guid: b2ad6bcb50be1d84a9cb5c07e506ad2f, type: 3}
   lockedSprite: {fileID: 0}
   levelText: {fileID: 0}
   levelPanel: {fileID: 0}
---- !u!114 &-8965080219990266372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7482546412629861329}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27db842e96b13de45bed2c31180945f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveFileName: GameData
-  folderName: SaveData
-  gameData:
-    currentLevelName: 
-    lockedLevels: []
---- !u!114 &1349207897786804902
+--- !u!114 &3759309303491879925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
