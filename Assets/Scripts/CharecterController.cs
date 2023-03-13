@@ -18,7 +18,6 @@ public class CharecterController : MonoBehaviour
     public float friction;
     public bool facingForward;
     public bool isStuck;
-
     [Header("Jump")]
     public float jumpForce;
     public float jumpCut;
@@ -395,10 +394,6 @@ public class CharecterController : MonoBehaviour
             if (col.collider.gameObject.tag == "stickGround")
             {
                 isStuck = false;
-            }
-            if (col.collider.gameObject.tag == "cannon")
-            {
-                col.gameObject.GetComponent<cannonController>().PlayerEnterCannon(gameObject);
             }
         }
     }
