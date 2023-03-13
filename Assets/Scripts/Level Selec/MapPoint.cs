@@ -56,8 +56,8 @@ public class MapPoint : MonoBehaviour
             if (isLevel)
             {
                 Debug.Log(Levelindext);
-                sceneToLoad = DataManager.instance.gameData.lockedLevels[Levelindext].sceneToLoad;
-                isLocked = DataManager.instance.gameData.lockedLevels[Levelindext].isLocked;
+               // sceneToLoad = DataManager.instance.gameData.lockedLevels[Levelindext].sceneToLoad;
+               // isLocked = DataManager.instance.gameData.lockedLevels[Levelindext].isLocked;
             }
             if (isLocked)
             {

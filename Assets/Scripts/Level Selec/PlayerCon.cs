@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerCon : MonoBehaviour
 {
     [SerializeField] MapPoint startPoint = null;
     [SerializeField] float moveSpeed = 3f;
@@ -29,9 +29,9 @@ public class NewBehaviourScript : MonoBehaviour
     }
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-        spriteRendrer = GetComponentInChildren<SpriteRenderer>();
-        spriteRendrer.enabled = false;
+        animator = GetComponent<Animator>();
+        spriteRendrer = GetComponent<SpriteRenderer>();
+        //spriteRendrer.enabled = false;
         canMove = false;
         SetPlayerPos();
     }
@@ -171,7 +171,7 @@ public class NewBehaviourScript : MonoBehaviour
             case 0:
                 animator.Play("Idle");
                 break;
-            case 1:
+            /*case 1:
                 animator.Play("Up");
                 break;
             case 2:
@@ -182,7 +182,7 @@ public class NewBehaviourScript : MonoBehaviour
                 break;
             case 4:
                 animator.Play("left");
-                break;
+                break;  */
 
 
         }

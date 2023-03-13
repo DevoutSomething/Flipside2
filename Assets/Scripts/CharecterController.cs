@@ -18,7 +18,6 @@ public class CharecterController : MonoBehaviour
     public float friction;
     public bool facingForward;
     public bool isStuck;
-
     [Header("Jump")]
     public float jumpForce;
     public float jumpCut;
@@ -73,6 +72,7 @@ public class CharecterController : MonoBehaviour
     [Header("attack interface")]
     private meleeAttackManager MeleeAttackManager;
     //[Header("Private Variables")]
+
 
     private void Start()
     {
