@@ -18,6 +18,6 @@ public class Sceneloader : MonoBehaviour
             DataManager.instance.gameData.lockedLevels[currentLevelIndex + 1].isLocked = false;
             DataManager.instance.SaveGameData();
         }
-        SceneManager.LoadScene("Overworld");
+        //SceneManager.LoadScene("Overworld");
     }
 }

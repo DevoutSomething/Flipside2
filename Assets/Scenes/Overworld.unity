@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 96282430}
   - component: {fileID: 96282429}
   - component: {fileID: 96282432}
+  - component: {fileID: 96282433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -340,7 +341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96282428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e457f67d79bd24b42a2ca66bded86f96, type: 3}
   m_Name: 
@@ -348,6 +349,19 @@ MonoBehaviour:
   Character: {fileID: 6920234775149594125}
   StartPin: {fileID: 1275304608}
   SelectedLevelText: {fileID: 0}
+--- !u!114 &96282433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96282428}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ecf24dff3ca0748a80bdee7d4f0c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevelIndex: 1
 --- !u!4 &183331572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7482546412629861356, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
@@ -526,11 +540,11 @@ PrefabInstance:
       objectReference: {fileID: 1120349533}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isLevel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isCorner
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: LevelName
@@ -630,11 +644,11 @@ PrefabInstance:
       objectReference: {fileID: 1680361684}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isLevel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isCorner
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: LevelName
@@ -7881,6 +7895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164458779}
+  - component: {fileID: 1164458780}
   m_Layer: 0
   m_Name: dots
   m_TagString: Untagged
@@ -7915,6 +7930,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164458780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164458778}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ecf24dff3ca0748a80bdee7d4f0c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevelIndex: 0
 --- !u!1 &1193295695
 GameObject:
   m_ObjectHideFlags: 0
@@ -7925,7 +7953,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1193295697}
   - component: {fileID: 1193295696}
-  - component: {fileID: 1193295698}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -7948,19 +7975,11 @@ MonoBehaviour:
   saveFileName: GameData
   folderName: SaveData
   gameData:
-    currentLevelName: start
+    currentLevelName: 
     lockedLevels:
-    - sceneToLoad: start
+    - sceneToLoad: testScene
       isLocked: 0
-    - sceneToLoad: top left
-      isLocked: 1
-    - sceneToLoad: first middle top
-      isLocked: 1
-    - sceneToLoad: 'middle right '
-      isLocked: 1
-    - sceneToLoad: bottom right
-      isLocked: 1
-    - sceneToLoad: end
+    - sceneToLoad: Farm World
       isLocked: 1
 --- !u!4 &1193295697
 Transform:
@@ -7970,26 +7989,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193295695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.805391, y: 1.7182487, z: -0.00014808826}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1193295698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193295695}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ecf24dff3ca0748a80bdee7d4f0c33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentLevelIndex: 0
 --- !u!114 &1275304608 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7482546412629861358, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
@@ -8750,6 +8756,22 @@ MonoBehaviour:
   moveSpeed: 3
   teleportTime: 3
   playerSprite: {fileID: 6920234775149594128}
+--- !u!58 &6920234775149594132
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795208730}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16
 --- !u!1001 &7482546411354896718
 PrefabInstance:
   m_ObjectHideFlags: 0

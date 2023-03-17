@@ -15,6 +15,7 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("data");
         if(instance == null)
         {
             instance = this;
@@ -36,6 +37,7 @@ public class DataManager : MonoBehaviour
         }
         LoadGameData();
     }
+   
 
     bool FolderExists(string folderPath)
     {

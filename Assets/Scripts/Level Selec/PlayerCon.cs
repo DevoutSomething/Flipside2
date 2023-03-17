@@ -171,7 +171,7 @@ public class PlayerCon : MonoBehaviour
             case 0:
                 animator.Play("Idle");
                 break;
-            /*case 1:
+            case 1:
                 animator.Play("Up");
                 break;
             case 2:
@@ -182,14 +182,14 @@ public class PlayerCon : MonoBehaviour
                 break;
             case 4:
                 animator.Play("left");
-                break;  */
+                break;  
 
 
         }
     }
     void SetNextPoint(MapPoint nextPoint)
     {
-        playerSprite.localPosition = Vector2.zero;
+        //playerSprite.localPosition = Vector2.zero;
         prevPoint = currentPoint;
         currentPoint = nextPoint;
 
