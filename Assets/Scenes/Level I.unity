@@ -1554,10 +1554,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 11
   changeZone: {fileID: 0}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 293194430}
   camRestrictRightXUpY: {fileID: 1926370534}
@@ -8693,10 +8695,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 10
   changeZone: {fileID: 307746652}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 142761448}
   camRestrictRightXUpY: {fileID: 47776903}
@@ -9238,10 +9242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 8
   changeZone: {fileID: 834765855}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 301525753}
   camRestrictRightXUpY: {fileID: 956814875}
@@ -11602,6 +11608,7 @@ MonoBehaviour:
   dashTime: 0.15
   hasDashedAir: 0
   dashStartTime: 0.08
+  Side1: 0
   lastTimeGrounded: 0
   isGrounded: 0
   moveDirection: 0
@@ -11807,10 +11814,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 5
   changeZone: {fileID: 1734433985}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 631484232}
   camRestrictRightXUpY: {fileID: 688852571}
@@ -12306,10 +12315,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 9
   changeZone: {fileID: 335754045}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 432467264}
   camRestrictRightXUpY: {fileID: 821645533}
@@ -12773,10 +12784,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 2
   changeZone: {fileID: 1768362914}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1668517599}
   camRestrictRightXUpY: {fileID: 9459745}
@@ -55452,10 +55465,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 1
   changeZone: {fileID: 996767439}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 420005535}
   camRestrictRightXUpY: {fileID: 415757664}
@@ -69546,10 +69561,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 7
   changeZone: {fileID: 500105200}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 2085119217}
   camRestrictRightXUpY: {fileID: 71304950}
@@ -69889,10 +69906,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 6
   changeZone: {fileID: 1622670044}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 43765271}
   camRestrictRightXUpY: {fileID: 390506511}
@@ -69971,10 +69990,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 4
   changeZone: {fileID: 710383526}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 597283813}
   camRestrictRightXUpY: {fileID: 829489276}
@@ -70027,10 +70048,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 3
   changeZone: {fileID: 1739048250}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1178031532}
   camRestrictRightXUpY: {fileID: 1618390389}

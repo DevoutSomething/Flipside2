@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ChangeZone : MonoBehaviour
 {
+    public bool isFinalUnFlip;
     public bool inZone;
     public bool saveZone;
     public int zoneNum;
     public ChangeZone changeZone;
+    public ChangeZone changeFlipZone;
     public float roomCamSize;
     public Transform zoneRespawnLocation;
     public Transform camRestrictRightXUpY;
@@ -60,8 +62,26 @@ public class ChangeZone : MonoBehaviour
                 //Destroy(gameObject);
             }
         }
-        else
+        if (gameManager.GetComponent<GameManager>().isFlipped == false)
         {
+            if (collision.gameObject.name == "player" && inZone)
+            {
+                player.GetComponent<PlayerHealth>().currentRoom = changeZone.zoneNum;
+                changeFlipZone.inZone = true;
+                inZone = false;
+                player.GetComponent<PlayerHealth>().currentRoom = changeZone.zoneNum;
+                if (changeFlipZone.saveZone)
+                {
+                    player.GetComponent<PlayerDataManager>().checkpoint = changeZone.zoneNum;
+                    gameManager.GetComponent<SaveFunction>().SavePlayer();
+
+                }
+            }
+
+        }
+
+        else
+                {
             if(collision.gameObject.name == "player" && !inZone)
             {
                 Debug.Log(" Collide with gate");

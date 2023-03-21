@@ -43,7 +43,7 @@ public class CharecterController : MonoBehaviour
     private Vector2 dashingDir;
     public bool hasDashedAir;
     public float dashStartTime;
-    private bool Side1;
+    public bool Side1;
 
     [Header("Private")]
     [SerializeField] private float lastTimeGrounded;
