@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Overworld.unity
+    guid: 340fe049d63a87f4ca9949ee79850812
+  - enabled: 1
+    path: Assets/Scenes/Farm World.unity
+    guid: 473480d977555df4bba5d40cb07211a1
+  - enabled: 1
+    path: Assets/Scenes/Level I.unity
+    guid: 4894a68d81b581444b49be667dd5d880
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 35e4014515de30742a4e46facf1fec2a
   m_configObjects: {}
