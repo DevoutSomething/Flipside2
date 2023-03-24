@@ -47,9 +47,10 @@ public class ChangeZone : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isFinalUnFlip)
+        if (collision.gameObject.name == "player" && inZone && isFinalUnFlip)
         {
-            gameManager.GetComponent<GameManager>().isFlipped = true;
+           gameManager.GetComponent<GameManager>().isFlipped = true;
+            gameManager.GetComponent<GameManager>().SpawnFlippedEnemies();
         }
         else if (gameManager.GetComponent<GameManager>().isFlipped == false)
         {

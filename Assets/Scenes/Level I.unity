@@ -9089,7 +9089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162351fe179b933478b102edff291aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFlipped: 1
+  isFlipped: 0
   thingsToReset:
   - {fileID: 1765865532}
   - {fileID: 1905533976}
