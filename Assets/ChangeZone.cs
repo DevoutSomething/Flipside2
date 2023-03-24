@@ -49,7 +49,7 @@ public class ChangeZone : MonoBehaviour
     {
         if (isFinalUnFlip)
         {
-
+            gameManager.GetComponent<GameManager>().isFlipped = true;
         }
         else if (gameManager.GetComponent<GameManager>().isFlipped == false)
         {
@@ -87,7 +87,7 @@ public class ChangeZone : MonoBehaviour
         }
 
         else
-                {
+        {
             if(collision.gameObject.name == "player" && !inZone)
             {
                 Debug.Log(" Collide with gate");
