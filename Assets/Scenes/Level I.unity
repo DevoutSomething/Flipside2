@@ -73575,7 +73575,7 @@ MonoBehaviour:
   death: 0
   respawnPoint: {x: 0, y: 0}
   attackManagerObject: {fileID: 893626658}
-  currentRoom: 1
+  currentRoom: 11
   Player: {fileID: 636634820}
 --- !u!61 &1887133282
 BoxCollider2D:

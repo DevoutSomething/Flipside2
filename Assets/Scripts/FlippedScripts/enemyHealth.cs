@@ -35,6 +35,9 @@ public class enemyHealth : MonoBehaviour
     {
         currentHealth = health;
         gameObject.SetActive(true);
-        gameObject.GetComponent<EnemyControllerAlpaca>().Respawn();
+        if (gameObject.GetComponent<EnemyControllerAlpaca>() != null)
+        {
+            gameObject.GetComponent<EnemyControllerAlpaca>().Respawn();
+        }
     }
 }
