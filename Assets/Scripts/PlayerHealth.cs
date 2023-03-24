@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         Player = GameObject.Find("player");
-        playerAnimator = GetComponentInChildren<Animator>();
+        playerAnimator = GetComponent<Animator>();
         MeleeAttackManager = Player.GetComponent<meleeAttackManager>();
         deathTimerTEMP = deathTimer;
         respawnPoint = spawnPoint.transform.position;
@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (room.GetComponent<ChangeZone>().zoneNum == currentRoom)
             {
-                transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
+                Player.transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
             }
         }
     }
@@ -65,7 +65,14 @@ public class PlayerHealth : MonoBehaviour
         gameManager.GetComponent<roomReset>().restartroom(currentRoom);
         death = false;
         playerAnimator.SetBool("Death", false);
-        Player.transform.position = respawnPoint;
+        GameObject[] Rooms = GameObject.FindGameObjectsWithTag("room");
+        foreach (GameObject room in Rooms)
+        {
+            if (room.GetComponent<ChangeZone>().zoneNum == currentRoom)
+            {
+                Player.transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
+            }
+        }
         TempHealth = 1;
         MeleeAttackManager.canAction = true;
         

@@ -28,7 +28,7 @@ public class ObstacleMove : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (GameObject.Find("player").GetComponent<PlayerHealth>().currentRoom == room)
+        if (GameObject.Find("PlayerAnim").GetComponent<PlayerHealth>().currentRoom == room)
         {
             if (!moveWithPlayer || hasTouchedPlayer)
             {

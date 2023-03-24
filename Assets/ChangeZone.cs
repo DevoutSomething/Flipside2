@@ -17,15 +17,17 @@ public class ChangeZone : MonoBehaviour
     private GameObject player;
     private GameObject Camera;
     private GameObject gameManager;
+    private PlayerHealth pHealth;
     void Start()
     {
         Camera = GameObject.Find("Player Camera");
-        player = GameObject.Find("player");
+        player = GameObject.Find("PlayerAnim");
         gameManager = GameObject.Find("GameManager");
+        pHealth = player.GetComponent<PlayerHealth>();
     }
     private void Update()
     {
-        if (player.GetComponent<PlayerHealth>().currentRoom == zoneNum)
+        if (pHealth.currentRoom == zoneNum)
         {
             inZone = true;
         }
