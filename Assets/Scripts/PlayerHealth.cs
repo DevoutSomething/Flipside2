@@ -16,11 +16,13 @@ public class PlayerHealth : MonoBehaviour
     private meleeAttackManager MeleeAttackManager;
     public GameObject attackManagerObject;
     public int currentRoom;
+    public GameObject Player;
     
     private void Start()
     {
+        Player = GameObject.Find("player");
         playerAnimator = GetComponentInChildren<Animator>();
-        MeleeAttackManager = gameObject.GetComponent<meleeAttackManager>();
+        MeleeAttackManager = Player.GetComponent<meleeAttackManager>();
         deathTimerTEMP = deathTimer;
         respawnPoint = spawnPoint.transform.position;
         GameObject[] Rooms = GameObject.FindGameObjectsWithTag("room");
@@ -63,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
         gameManager.GetComponent<roomReset>().restartroom(currentRoom);
         death = false;
         playerAnimator.SetBool("Death", false);
-        gameObject.transform.position = respawnPoint;
+        Player.transform.position = respawnPoint;
         TempHealth = 1;
         MeleeAttackManager.canAction = true;
         
@@ -86,12 +88,12 @@ public class PlayerHealth : MonoBehaviour
             TempHealth -= 1;
         }
     }
-   /* private void OnTriggerEnter2D(Collider2D col)
+  private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("obstacle"))
         {
             TempHealth -= 1;
         }
     }
-   */
+   
 }
