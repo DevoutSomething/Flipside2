@@ -9090,11 +9090,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 0
-  thingsToReset: []
-  thingsToDeactivate:
+  thingsToReset:
   - {fileID: 1765865532}
   - {fileID: 1905533976}
   - {fileID: 707879355}
+  thingsToDeactivate: []
 --- !u!114 &482356646
 MonoBehaviour:
   m_ObjectHideFlags: 0
