@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
         {
             list.gameObject.SetActive(true);
         }
+        foreach (GameObject list in thingsToReset)
+        {
+            list.gameObject.SetActive(false);
+        }
     }
     public void SpawnFlippedEnemies()
     {

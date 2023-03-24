@@ -1478,7 +1478,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05229187, y: -0.8019724}
+  m_Offset: {x: 0.34649658, y: -0.8019724}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1489,7 +1489,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.198944, y: 0.848711}
+  m_Size: {x: 15.703552, y: 0.848711}
   m_EdgeRadius: 0
 --- !u!114 &307746652
 MonoBehaviour:
@@ -1503,12 +1503,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFinalUnFlip: 0
+  isFinalUnFlip: 1
   inZone: 0
   saveZone: 0
   zoneNum: 11
-  changeZone: {fileID: 0}
-  changeFlipZone: {fileID: 0}
+  changeZone: {fileID: 335754045}
+  changeFlipZone: {fileID: 335754045}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 293194430}
   camRestrictRightXUpY: {fileID: 1926370534}
@@ -8382,7 +8382,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 10
   changeZone: {fileID: 307746652}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 834765855}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 142761448}
   camRestrictRightXUpY: {fileID: 47776903}
@@ -9089,9 +9089,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162351fe179b933478b102edff291aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFlipped: 1
+  isFlipped: 0
   thingsToReset: []
-  thingsToDeactivate: []
+  thingsToDeactivate:
+  - {fileID: 1765865532}
+  - {fileID: 1905533976}
+  - {fileID: 707879355}
 --- !u!114 &482356646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9201,7 +9204,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 8
   changeZone: {fileID: 834765855}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 1622670044}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 301525753}
   camRestrictRightXUpY: {fileID: 956814875}
@@ -11507,7 +11510,7 @@ MonoBehaviour:
   death: 0
   respawnPoint: {x: 0, y: 0}
   attackManagerObject: {fileID: 893626658}
-  currentRoom: 1
+  currentRoom: 11
 --- !u!114 &636634822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11889,7 +11892,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 5
   changeZone: {fileID: 1734433985}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 1739048250}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 631484232}
   camRestrictRightXUpY: {fileID: 688852571}
@@ -12406,7 +12409,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 9
   changeZone: {fileID: 335754045}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 500105200}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 432467264}
   camRestrictRightXUpY: {fileID: 821645533}
@@ -12863,7 +12866,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 2
   changeZone: {fileID: 1768362914}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 1466525877}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1668517599}
   camRestrictRightXUpY: {fileID: 9459745}
@@ -69854,7 +69857,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 7
   changeZone: {fileID: 500105200}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 1734433985}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 2085119217}
   camRestrictRightXUpY: {fileID: 71304950}
@@ -70242,7 +70245,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 6
   changeZone: {fileID: 1622670044}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 710383526}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 43765271}
   camRestrictRightXUpY: {fileID: 390506511}
@@ -70326,7 +70329,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 4
   changeZone: {fileID: 710383526}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 1768362914}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 597283813}
   camRestrictRightXUpY: {fileID: 829489276}
@@ -70488,7 +70491,7 @@ MonoBehaviour:
   saveZone: 0
   zoneNum: 3
   changeZone: {fileID: 1739048250}
-  changeFlipZone: {fileID: 0}
+  changeFlipZone: {fileID: 996767439}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1178031532}
   camRestrictRightXUpY: {fileID: 1618390389}
