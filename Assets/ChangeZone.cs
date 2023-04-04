@@ -18,6 +18,7 @@ public class ChangeZone : MonoBehaviour
     private GameObject Camera;
     private GameObject gameManager;
     private PlayerHealth pHealth;
+    public Transform tempSpawnPoint;
     void Start()
     {
         Camera = GameObject.Find("Player Camera");
