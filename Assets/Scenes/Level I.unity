@@ -791,6 +791,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72b85824f2561f64c8ac40da29404b19, type: 3}
+--- !u!1 &71158361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 71158362}
+  m_Layer: 0
+  m_Name: RoomSpawnPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &71158362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71158361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6, y: 0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 307746650}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &71304949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1663,7 @@ Transform:
   - {fileID: 1926370534}
   - {fileID: 276897980}
   - {fileID: 293194430}
+  - {fileID: 71158362}
   m_Father: {fileID: 576567196}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1681,8 +1713,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 335754045}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 293194430}
+  zoneRespawnLocationFlipped: {fileID: 71158362}
   camRestrictRightXUpY: {fileID: 1926370534}
   camRestrictLeftxDownY: {fileID: 276897980}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1 &310121077
 GameObject:
   m_ObjectHideFlags: 0
@@ -8555,8 +8589,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 834765855}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 142761448}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 47776903}
   camRestrictLeftxDownY: {fileID: 1929010149}
+  tempSpawnPoint: {fileID: 0}
 --- !u!4 &360124558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2677809495327983569, guid: 72b85824f2561f64c8ac40da29404b19, type: 3}
@@ -9377,8 +9413,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 1622670044}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 301525753}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 956814875}
   camRestrictLeftxDownY: {fileID: 402491366}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1001 &510245709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12074,8 +12112,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 1739048250}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 631484232}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 688852571}
   camRestrictLeftxDownY: {fileID: 879721007}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1 &715829628
 GameObject:
   m_ObjectHideFlags: 0
@@ -12591,8 +12631,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 500105200}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 432467264}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 821645533}
   camRestrictLeftxDownY: {fileID: 1072642868}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1 &863028479
 GameObject:
   m_ObjectHideFlags: 0
@@ -13179,8 +13221,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 1466525877}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1668517599}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 9459745}
   camRestrictLeftxDownY: {fileID: 2018629052}
+  tempSpawnPoint: {fileID: 0}
 --- !u!61 &996767440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58681,8 +58725,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 420005535}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 415757664}
   camRestrictLeftxDownY: {fileID: 380305283}
+  tempSpawnPoint: {fileID: 0}
 --- !u!61 &1466525878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73082,8 +73128,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 1734433985}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 2085119217}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 71304950}
   camRestrictLeftxDownY: {fileID: 159302640}
+  tempSpawnPoint: {fileID: 0}
 --- !u!4 &1630216300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7201461914714879483, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
@@ -73435,8 +73483,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 710383526}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 43765271}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 390506511}
   camRestrictLeftxDownY: {fileID: 377339870}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1 &1739048247
 GameObject:
   m_ObjectHideFlags: 0
@@ -73519,8 +73569,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 1768362914}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 597283813}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 829489276}
   camRestrictLeftxDownY: {fileID: 933251319}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1 &1768362912
 GameObject:
   m_ObjectHideFlags: 0
@@ -73577,8 +73629,10 @@ MonoBehaviour:
   changeFlipZone: {fileID: 996767439}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1178031532}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 1618390389}
   camRestrictLeftxDownY: {fileID: 572455016}
+  tempSpawnPoint: {fileID: 0}
 --- !u!61 &1768362915
 BoxCollider2D:
   m_ObjectHideFlags: 0
