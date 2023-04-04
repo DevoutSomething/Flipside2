@@ -24,13 +24,12 @@ public class PlayerHealth : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         MeleeAttackManager = Player.GetComponent<meleeAttackManager>();
         deathTimerTEMP = deathTimer;
-        respawnPoint = spawnPoint.transform.position;
         GameObject[] Rooms = GameObject.FindGameObjectsWithTag("room");
         foreach (GameObject room in Rooms)
         {
             if (room.GetComponent<ChangeZone>().zoneNum == currentRoom)
             {
-                Player.transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
+                Player.transform.position = respawnPoint;
             }
         }
     }
@@ -70,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (room.GetComponent<ChangeZone>().zoneNum == currentRoom)
             {
-                Player.transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
+                Player.transform.position = respawnPoint;
             }
         }
         TempHealth = 1;

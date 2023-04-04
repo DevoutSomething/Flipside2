@@ -38,7 +38,7 @@ public class ChangeZone : MonoBehaviour
         {
             inZone = false;
         }
-        if (inZone && gameManager.GetComponent<GameManager>().isFlipped != true)
+        if (inZone && gameManager.GetComponent<GameManager>().isFlipped != true && player.GetComponent<PlayerHealth>().respawnPoint != new Vector2(zoneRespawnLocation.position.x, zoneRespawnLocation.position.y))
         {
             Camera.GetComponent<CameraController>().lowerXLimit = camRestrictLeftxDownY.position.x;
             Camera.GetComponent<CameraController>().upperXLimit = camRestrictRightXUpY.position.x;
@@ -46,8 +46,9 @@ public class ChangeZone : MonoBehaviour
             Camera.GetComponent<CameraController>().upperYLimit = camRestrictRightXUpY.position.y;
             Camera.GetComponent<CameraController>().WantedCamSize = roomCamSize;
             player.GetComponent<PlayerHealth>().respawnPoint = new Vector2(zoneRespawnLocation.position.x, zoneRespawnLocation.position.y);
+            Debug.Log("no flip spawn point");
         }
-        else if (inZone && gameManager.GetComponent<GameManager>().isFlipped == true)
+        if (inZone && gameManager.GetComponent<GameManager>().isFlipped == true && player.GetComponent<PlayerHealth>().respawnPoint != new Vector2(zoneRespawnLocationFlipped.position.x, zoneRespawnLocationFlipped.position.y))
         {
             Camera.GetComponent<CameraController>().lowerXLimit = camRestrictLeftxDownY.position.x;
             Camera.GetComponent<CameraController>().upperXLimit = camRestrictRightXUpY.position.x;
@@ -55,6 +56,7 @@ public class ChangeZone : MonoBehaviour
             Camera.GetComponent<CameraController>().upperYLimit = camRestrictRightXUpY.position.y;
             Camera.GetComponent<CameraController>().WantedCamSize = roomCamSize;
             player.GetComponent<PlayerHealth>().respawnPoint = new Vector2(zoneRespawnLocationFlipped.position.x, zoneRespawnLocationFlipped.position.y);
+            Debug.Log("flip spawn point");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
