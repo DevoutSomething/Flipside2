@@ -12,6 +12,8 @@ public class ChangeZone : MonoBehaviour
     public ChangeZone changeFlipZone;
     public float roomCamSize;
     public Transform zoneRespawnLocation;
+    public Transform zoneRespawnLocationFlipped;
+
     public Transform camRestrictRightXUpY;
     public Transform camRestrictLeftxDownY;
     private GameObject player;
@@ -36,7 +38,7 @@ public class ChangeZone : MonoBehaviour
         {
             inZone = false;
         }
-        if (inZone)
+        if (inZone && gameManager.GetComponent<GameManager>().isFlipped != true)
         {
             Camera.GetComponent<CameraController>().lowerXLimit = camRestrictLeftxDownY.position.x;
             Camera.GetComponent<CameraController>().upperXLimit = camRestrictRightXUpY.position.x;
@@ -44,6 +46,15 @@ public class ChangeZone : MonoBehaviour
             Camera.GetComponent<CameraController>().upperYLimit = camRestrictRightXUpY.position.y;
             Camera.GetComponent<CameraController>().WantedCamSize = roomCamSize;
             player.GetComponent<PlayerHealth>().respawnPoint = new Vector2(zoneRespawnLocation.position.x, zoneRespawnLocation.position.y);
+        }
+        else if (inZone && gameManager.GetComponent<GameManager>().isFlipped == true)
+        {
+            Camera.GetComponent<CameraController>().lowerXLimit = camRestrictLeftxDownY.position.x;
+            Camera.GetComponent<CameraController>().upperXLimit = camRestrictRightXUpY.position.x;
+            Camera.GetComponent<CameraController>().lowerYLimit = camRestrictLeftxDownY.position.y;
+            Camera.GetComponent<CameraController>().upperYLimit = camRestrictRightXUpY.position.y;
+            Camera.GetComponent<CameraController>().WantedCamSize = roomCamSize;
+            player.GetComponent<PlayerHealth>().respawnPoint = new Vector2(zoneRespawnLocationFlipped.position.x, zoneRespawnLocationFlipped.position.y);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
