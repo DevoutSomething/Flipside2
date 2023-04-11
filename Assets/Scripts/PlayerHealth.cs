@@ -64,6 +64,7 @@ public class PlayerHealth : MonoBehaviour
         gameManager.GetComponent<roomReset>().restartroom(currentRoom);
         death = false;
         playerAnimator.SetBool("Death", false);
+        Player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         GameObject[] Rooms = GameObject.FindGameObjectsWithTag("room");
         foreach (GameObject room in Rooms)
         {

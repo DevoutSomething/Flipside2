@@ -108,6 +108,7 @@ public class ChangeZone : MonoBehaviour
                 Debug.Log(" Collide with gate");
                 changeZone.inZone = false;
                 inZone = true;
+                player.GetComponent<PlayerHealth>().currentRoom = zoneNum;
                 if (saveZone)
                 {
                     player.GetComponent<PlayerDataManager>().checkpoint = zoneNum;
