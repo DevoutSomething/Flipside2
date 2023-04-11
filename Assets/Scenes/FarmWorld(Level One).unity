@@ -19172,6 +19172,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 2086254441}
   death: 0
   respawnPoint: {x: 0, y: 0}
+  attackManagerObject: {fileID: 0}
+  currentRoom: 0
+  Player: {fileID: 0}
 --- !u!114 &838931734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19194,8 +19197,10 @@ MonoBehaviour:
   canAction: 0
   canAttack: 0
   Nuke: {fileID: 0}
+  isStuck: 0
   canTransitionState: 0
   timeCantTransition: 0
+  gameManager: {fileID: 0}
 --- !u!114 &838931735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19215,6 +19220,7 @@ MonoBehaviour:
   velocityPoweer: 0.96
   friction: 0.22
   facingForward: 0
+  isStuck: 0
   jumpForce: 13
   jumpCut: 0.4
   CoyoteTime: 0.15
@@ -19223,6 +19229,7 @@ MonoBehaviour:
   GravityMultiplier: 2
   jumpBufferTime: 0.2
   canJump: 0
+  canBypassJump: 0
   groundCheckPoint: {fileID: 1855908759}
   groundCheckSize: {x: 0.4, y: 0.1}
   groundLayer:
@@ -19234,11 +19241,14 @@ MonoBehaviour:
   dashTime: 0.15
   hasDashedAir: 0
   dashStartTime: 0.08
+  Side1: 0
   lastTimeGrounded: 0
   isGrounded: 0
   moveDirection: 0
   canResetJump: 0
   isJumping: 0
+  isDashing: 0
+  isActuallyDashing: 0
   canDash: 0
   rotationOnJump: 0
   timeManager: {fileID: 0}
@@ -19383,6 +19393,7 @@ MonoBehaviour:
   giveDashReset: 0
   health: 1
   bounceMult: 0
+  makePlayerDash: 0
 --- !u!114 &938446393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26008,7 +26019,7 @@ Transform:
   - {fileID: 221093045}
   - {fileID: 93461005}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &990242420
 MonoBehaviour:
@@ -26114,6 +26125,52 @@ MonoBehaviour:
   giveDashReset: 0
   health: 1
   bounceMult: 0
+  makePlayerDash: 0
+--- !u!1 &1028753352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1028753354}
+  - component: {fileID: 1028753353}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1028753353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028753352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ecf24dff3ca0748a80bdee7d4f0c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevelIndex: 2
+--- !u!4 &1028753354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028753352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.56801, y: 1.8694342, z: -0.015376112}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029350541
 GameObject:
   m_ObjectHideFlags: 0
@@ -26144,7 +26201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1456511425}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1029350543
 BoxCollider2D:
@@ -26288,6 +26345,7 @@ MonoBehaviour:
   giveDashReset: 0
   health: 1
   bounceMult: 0
+  makePlayerDash: 0
 --- !u!1 &1464431644
 GameObject:
   m_ObjectHideFlags: 0
@@ -26438,7 +26496,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1523381532
 GameObject:
@@ -26533,7 +26591,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1527359138
 MonoBehaviour:
@@ -26548,6 +26606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 0
+  thingsToReset: []
+  thingsToDeactivate: []
 --- !u!1 &1668915193
 GameObject:
   m_ObjectHideFlags: 0
@@ -26631,7 +26691,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1668915197
 MonoBehaviour:
@@ -26653,6 +26713,7 @@ MonoBehaviour:
   startingRoom: {fileID: 962383735}
   zoomSpeed: 0.02
   baseCameraSize: 7
+  WantedCamSize: 0
   zoomLimit: 4.5
   currentDashing: 0
   timeBeforeStart: 0.005
@@ -69073,6 +69134,7 @@ MonoBehaviour:
   groundMult: 0.3
   multiHitMultAddition: 0.2
   upForceOnSide: 200
+  enemiesKilled: []
 --- !u!61 &1953652686
 BoxCollider2D:
   m_ObjectHideFlags: 0

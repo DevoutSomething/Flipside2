@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 0
+  thingsToReset: []
+  thingsToDeactivate: []
 --- !u!114 &89176032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +317,51 @@ MonoBehaviour:
   locatons: []
   ResetRoom: 0
   RoomNum: 0
+--- !u!1 &95863460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95863462}
+  - component: {fileID: 95863461}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &95863461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95863460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ecf24dff3ca0748a80bdee7d4f0c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevelIndex: 4
+--- !u!4 &95863462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95863460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5753386, y: 4.7726216, z: -0.07508035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &97244600
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,14 +441,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 3
   changeZone: {fileID: 1577482728}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 6
   zoneRespawnLocation: {fileID: 1645275308}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 97244601}
   camRestrictLeftxDownY: {fileID: 754980832}
+  tempSpawnPoint: {fileID: 0}
 --- !u!61 &99115640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -711,14 +762,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 6
   changeZone: {fileID: 761921849}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1619171591}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 790527112}
   camRestrictLeftxDownY: {fileID: 776699771}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1 &243847331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,14 +1977,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 7
   changeZone: {fileID: 0}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1053457453}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 882500255}
   camRestrictLeftxDownY: {fileID: 838253844}
+  tempSpawnPoint: {fileID: 0}
 --- !u!1 &776699770
 GameObject:
   m_ObjectHideFlags: 0
@@ -88819,6 +88878,7 @@ MonoBehaviour:
   respawnPoint: {x: 0, y: 0}
   attackManagerObject: {fileID: 1475746708}
   currentRoom: 7
+  Player: {fileID: 0}
 --- !u!114 &1244999310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88864,6 +88924,7 @@ MonoBehaviour:
   velocityPoweer: 0.96
   friction: 0.22
   facingForward: 0
+  isStuck: 0
   jumpForce: 13
   jumpCut: 0.4
   CoyoteTime: 0.15
@@ -88884,6 +88945,7 @@ MonoBehaviour:
   dashTime: 0.15
   hasDashedAir: 0
   dashStartTime: 0.08
+  Side1: 0
   lastTimeGrounded: 0
   isGrounded: 0
   moveDirection: 0
@@ -89289,14 +89351,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 5
   changeZone: {fileID: 201960784}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1177003187}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 668762663}
   camRestrictLeftxDownY: {fileID: 2040569657}
+  tempSpawnPoint: {fileID: 0}
 --- !u!114 &1396944730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90009,14 +90075,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 4
   changeZone: {fileID: 1396944729}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 7
   zoneRespawnLocation: {fileID: 700249479}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 814857739}
   camRestrictLeftxDownY: {fileID: 826477680}
+  tempSpawnPoint: {fileID: 0}
 --- !u!61 &1577482729
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -91002,14 +91072,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
   zoneNum: 2
   changeZone: {fileID: 99115639}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 6
   zoneRespawnLocation: {fileID: 1873489297}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 799589951}
   camRestrictLeftxDownY: {fileID: 1064333384}
+  tempSpawnPoint: {fileID: 0}
 --- !u!61 &1794721365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -91468,14 +91542,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d201f7ba95e1214e8b497992956f52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalUnFlip: 0
   inZone: 1
   saveZone: 0
   zoneNum: 1
   changeZone: {fileID: 1794721364}
+  changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 1307415468}
+  zoneRespawnLocationFlipped: {fileID: 0}
   camRestrictRightXUpY: {fileID: 1835222579}
   camRestrictLeftxDownY: {fileID: 363996816}
+  tempSpawnPoint: {fileID: 0}
 --- !u!4 &2131072702
 Transform:
   m_ObjectHideFlags: 0

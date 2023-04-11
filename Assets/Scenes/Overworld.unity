@@ -540,7 +540,7 @@ PrefabInstance:
       objectReference: {fileID: 1120349533}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isCorner
@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 1680361684}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7316604640350363643, guid: c226fecef1a67f148870da5f2dedb063, type: 3}
       propertyPath: isCorner
@@ -7987,7 +7987,15 @@ MonoBehaviour:
     lockedLevels:
     - sceneToLoad: testScene
       isLocked: 0
-    - sceneToLoad: Farm World
+    - sceneToLoad: Level I
+      isLocked: 1
+    - sceneToLoad: FarmWorld(Level One)
+      isLocked: 1
+    - sceneToLoad: Level1
+      isLocked: 1
+    - sceneToLoad: 'Farm World '
+      isLocked: 1
+    - sceneToLoad: Holder
       isLocked: 1
 --- !u!4 &1193295697
 Transform:

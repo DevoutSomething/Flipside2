@@ -36,8 +36,17 @@ public class DataManager : MonoBehaviour
             Directory.CreateDirectory(defaultPath);
         }
         LoadGameData();
+
+       
     }
-   
+    private void Update()
+    {
+        if (Input.GetKeyDown("i"))
+        {
+            File.WriteAllText(fileName, "");
+            Debug.Log("clear");
+        }
+    }
 
     bool FolderExists(string folderPath)
     {
