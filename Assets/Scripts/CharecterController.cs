@@ -184,24 +184,53 @@ public class CharecterController : MonoBehaviour
             {
                 FacingRight = false;
             }
-
-            if (isGrounded && Input.GetAxis("Horizontal") != 0)
+            if (!Side1)
             {
-                playerAnim.SetBool("Run", true);
-                playerAnim.SetBool("Jump", false);
+                playerAnim.SetBool("runNoFlip", false);
+                playerAnim.SetBool("jumpNoFlip", false);
+                if (isGrounded && Input.GetAxis("Horizontal") != 0)
+                {
+                    playerAnim.SetBool("Run", true);
+                    playerAnim.SetBool("Jump", false);
+                }
+                else
+                {
+                    playerAnim.SetBool("Run", false);
+                }
+                if (!isGrounded && isJumping)
+                {
+                    playerAnim.SetBool("Jump", true);
+                }
+                else if (isGrounded)
+                {
+                    playerAnim.SetBool("Jump", false);
+                }
             }
             else
             {
+                playerAnim.SetBool("NotFlip", true);
                 playerAnim.SetBool("Run", false);
-            }
-            if (!isGrounded && isJumping)
-            {
-                playerAnim.SetBool("Jump", true);
-            }
-            else if (isGrounded)
-            {
                 playerAnim.SetBool("Jump", false);
+
+                if (isGrounded && Input.GetAxis("Horizontal") != 0)
+                {
+                    playerAnim.SetBool("runNoFlip", true);
+                    playerAnim.SetBool("jumpNoFlip", false);
+                }
+                else
+                {
+                    playerAnim.SetBool("runNoFlip", false);
+                }
+                if (!isGrounded && isJumping)
+                {
+                    playerAnim.SetBool("jumpNoFlip", true);
+                }
+                else if (isGrounded)
+                {
+                    playerAnim.SetBool("jumpNoFlip", false);
+                }
             }
+           
 
             if (!isGrounded)
             {
@@ -245,7 +274,15 @@ public class CharecterController : MonoBehaviour
             #endregion
 
         }
+        if (Side1)
+        {
+            playerAnim.SetBool("NotFlip", true);
 
+        }
+        else
+        {
+            playerAnim.SetBool("NotFlip", false);
+        }
     }
     private void FixedUpdate()
     {
