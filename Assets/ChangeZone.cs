@@ -16,17 +16,32 @@ public class ChangeZone : MonoBehaviour
 
     public Transform camRestrictRightXUpY;
     public Transform camRestrictLeftxDownY;
+    public Transform camRestrictRightXUpYFlipped;
+    public Transform camRestrictLeftxDownYFlipped;
     private GameObject player;
     private GameObject Camera;
     private GameObject gameManager;
     private PlayerHealth pHealth;
     public Transform tempSpawnPoint;
+    
     void Start()
     {
         Camera = GameObject.Find("Player Camera");
         player = GameObject.Find("PlayerAnim");
         gameManager = GameObject.Find("GameManager");
         pHealth = player.GetComponent<PlayerHealth>();
+        if (camRestrictLeftxDownYFlipped == null)
+        {
+            camRestrictLeftxDownYFlipped = camRestrictLeftxDownY;
+        }
+        if (camRestrictRightXUpYFlipped == null)
+        {
+            camRestrictRightXUpYFlipped = camRestrictRightXUpY;
+        }
+        if (zoneRespawnLocationFlipped == null)
+        {
+            zoneRespawnLocationFlipped = zoneRespawnLocation;
+        }
     }
     private void Update()
     {
@@ -101,7 +116,7 @@ public class ChangeZone : MonoBehaviour
 
         }
 
-        else
+        if (gameManager.GetComponent<GameManager>().isFlipped == true)
         {
             if(collision.gameObject.name == "player" && !inZone)
             {
@@ -113,7 +128,7 @@ public class ChangeZone : MonoBehaviour
                 {
                     player.GetComponent<PlayerDataManager>().checkpoint = zoneNum;
                     gameManager.GetComponent<SaveFunction>().SavePlayer();
-
+                    
                 }
                 //Destroy(gameObject);
             }

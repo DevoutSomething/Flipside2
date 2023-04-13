@@ -17,10 +17,12 @@ public class PlayerHealth : MonoBehaviour
     public GameObject attackManagerObject;
     public int currentRoom;
     public GameObject Player;
-    
+    private GameObject gameManager;
+
     private void Start()
     {
         Player = GameObject.Find("player");
+        gameManager = GameObject.Find("GameManager");
         playerAnimator = GetComponent<Animator>();
         MeleeAttackManager = Player.GetComponent<meleeAttackManager>();
         deathTimerTEMP = deathTimer;
@@ -29,7 +31,14 @@ public class PlayerHealth : MonoBehaviour
         {
             if (room.GetComponent<ChangeZone>().zoneNum == currentRoom)
             {
-                Player.transform.position = respawnPoint;
+                if (gameManager.GetComponent<GameManager>().isFlipped)
+                {
+                    Player.transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocationFlipped.position;
+                }
+                else
+                {
+                    Player.transform.position = room.GetComponent<ChangeZone>().zoneRespawnLocation.position;
+                }
             }
         }
     }

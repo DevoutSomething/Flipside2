@@ -12,11 +12,24 @@ public class enemyHealth : MonoBehaviour
     public float bounceMult;
     private int currentHealth;
     public bool makePlayerDash;
+    public bool onlyFirstSide;
+    private GameObject gameManager;
     private void Start()
     {
-            currentHealth = health;
+        currentHealth = health;
+        gameManager = GameObject.Find("GameManager");
     }
-
+    private void Update()
+    {
+        if (gameManager.GetComponent<GameManager>().isFlipped && onlyFirstSide)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        } 
+    }
     public void Damage(int amount)
     {
         //checks if enemy can take damage
