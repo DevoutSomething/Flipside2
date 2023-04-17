@@ -8,15 +8,15 @@ public class DataManager : MonoBehaviour
     public string saveFileName = "GameData";
     public string folderName = "SaveData";
 
-    public DefaultData gameData = new DefaultData();
 
+    public DefaultData gameData = new DefaultData();
     string defaultPath;
     string fileName;
 
     private void Awake()
     {
         Debug.Log("data");
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -39,14 +39,7 @@ public class DataManager : MonoBehaviour
 
        
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown("i"))
-        {
-            File.WriteAllText(fileName, "");
-            Debug.Log("clear");
-        }
-    }
+   
 
     bool FolderExists(string folderPath)
     {
@@ -69,5 +62,21 @@ public class DataManager : MonoBehaviour
     {
         string saveData = JsonUtility.ToJson(gameData);
         File.WriteAllText(fileName, saveData);
+    }
+
+    private void Update()
+    {
+        string saveData = JsonUtility.ToJson(gameData);
+        if (Input.GetKeyDown("i"))
+        {
+            File.WriteAllText(fileName, "");
+            Debug.Log("clear");
+        }
+        if (Input.GetKeyDown("o"))
+        {
+            Debug.Log(saveData);
+            File.WriteAllText(fileName, saveData);
+            Debug.Log("make");
+        }
     }
 }
