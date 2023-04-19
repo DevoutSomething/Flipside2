@@ -52,6 +52,7 @@ public class DataManager : MonoBehaviour
         {
             string saveData = File.ReadAllText(fileName);
             gameData = JsonUtility.FromJson<DefaultData>(saveData);
+           
         }
         else
         {

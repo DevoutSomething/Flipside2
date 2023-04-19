@@ -92,7 +92,6 @@ public class ChangeZone : MonoBehaviour
                 if (changeZone.saveZone)
                 {
                     player.GetComponent<PlayerDataManager>().checkpoint = changeZone.zoneNum;
-                    gameManager.GetComponent<SaveFunction>().SavePlayer();
 
                 }
                 //Destroy(gameObject);
@@ -109,7 +108,6 @@ public class ChangeZone : MonoBehaviour
                 if (changeFlipZone.saveZone)
                 {
                     player.GetComponent<PlayerDataManager>().checkpoint = changeZone.zoneNum;
-                    gameManager.GetComponent<SaveFunction>().SavePlayer();
 
                 }
             }
@@ -127,7 +125,6 @@ public class ChangeZone : MonoBehaviour
                 if (saveZone)
                 {
                     player.GetComponent<PlayerDataManager>().checkpoint = zoneNum;
-                    gameManager.GetComponent<SaveFunction>().SavePlayer();
                     
                 }
                 //Destroy(gameObject);
