@@ -197,7 +197,7 @@ public class PlayerCon : MonoBehaviour
     }
     void SetPlayerPos()
     {
-        if(DataManager.instance.gameData.currentLevelName == "")
+        if(DataManager.instance.gameData.currentLevelName == currentPoint.name)
         {
             transform.position = startPoint.transform.position;
             spriteRendrer.enabled = true;
