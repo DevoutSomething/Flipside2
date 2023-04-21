@@ -128,6 +128,10 @@ MonoBehaviour:
   distance: 6
   attacking: 0
   timeNoTarget: 0
+  isRotRight: 0
+  isRotLeft: 0
+  isRotDown: 0
+  isFastyPlant: 0
 --- !u!61 &3005810493289671189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +176,5 @@ MonoBehaviour:
   giveDashReset: 0
   health: 1
   bounceMult: 1.1
+  makePlayerDash: 0
+  onlyFirstSide: 0

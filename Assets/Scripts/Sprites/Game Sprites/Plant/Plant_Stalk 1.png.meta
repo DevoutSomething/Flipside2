@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,7 +103,952 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Plant_Stalk 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: -115}
+        - {x: -5, y: -115}
+        - {x: -5, y: -128}
+        - {x: 4, y: -128}
+        - {x: 4, y: -115}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c900c9daaf3eef94fbce7932f6e40898
+      internalID: 2075727810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -101}
+        - {x: -3, y: -113}
+        - {x: -3, y: -127}
+        - {x: 3, y: -127}
+        - {x: 3, y: -114}
+        - {x: 5, y: -101}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a5c4ad09610824eae842e152dc75d8
+      internalID: 1105800980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -87}
+        - {x: -2, y: -99}
+        - {x: -1, y: -126}
+        - {x: 2, y: -127}
+        - {x: 2, y: -99}
+        - {x: 5, y: -87}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45e61b3270a7e840a91043600508d23
+      internalID: 1936306425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -70}
+        - {x: 0, y: -119}
+        - {x: -1, y: -128}
+        - {x: 3, y: -127}
+        - {x: 1, y: -82}
+        - {x: 4, y: -71}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e29a9adb3d6134ab6916affa2b90a3
+      internalID: 1223649698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -53}
+        - {x: -1, y: -75}
+        - {x: -3, y: -95}
+        - {x: -2, y: -127}
+        - {x: 3, y: -128}
+        - {x: 3, y: -95}
+        - {x: 2, y: -70}
+        - {x: 5, y: -53}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce71ff60b1fff84a82ec1bf5447ef72
+      internalID: 2104078523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: -39}
+        - {x: -3, y: -89}
+        - {x: -2, y: -128}
+        - {x: 2, y: -128}
+        - {x: 2, y: -84}
+        - {x: 1, y: -65}
+        - {x: 2, y: -51}
+        - {x: 5, y: -39}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87912bd6bf9aed42b3df55e8f6ecfc1
+      internalID: -493883307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -22}
+        - {x: -2, y: -91}
+        - {x: -2, y: -128}
+        - {x: 2, y: -128}
+        - {x: 2, y: -89}
+        - {x: 2, y: -48}
+        - {x: 5, y: -21}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7682616539182b34a9d69da8dbb97c92
+      internalID: -729140009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -7}
+        - {x: -2, y: -27}
+        - {x: -3, y: -78}
+        - {x: -2, y: -118}
+        - {x: -2, y: -128}
+        - {x: 2, y: -128}
+        - {x: 1, y: -117}
+        - {x: 1, y: -73}
+        - {x: 2, y: -22}
+        - {x: 5, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675b4178ca3a1c74ba196f0d4707c233
+      internalID: 539832953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: 8}
+        - {x: -2, y: -4}
+        - {x: -3, y: -72}
+        - {x: -2, y: -127}
+        - {x: 2, y: -127}
+        - {x: 3, y: -78}
+        - {x: 2, y: -4}
+        - {x: 4, y: 9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0c1d1d852d2ed4eadeb28106a49786
+      internalID: 219899336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: 26}
+        - {x: -2, y: 3}
+        - {x: -2, y: -90}
+        - {x: -1, y: -127}
+        - {x: 3, y: -128}
+        - {x: 2, y: -114}
+        - {x: 3, y: -85}
+        - {x: 3, y: 4}
+        - {x: 5, y: 25}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a6ba0281ad0704bbe7267a872b165b
+      internalID: 1174809867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: 42}
+        - {x: -2, y: 30}
+        - {x: -4, y: -65}
+        - {x: -2, y: -128}
+        - {x: 2, y: -128}
+        - {x: 2, y: -62}
+        - {x: 2, y: 32}
+        - {x: 7, y: 42}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31891fa80b7f1034bb92471a1219dc36
+      internalID: 1452760449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: 57}
+        - {x: -2, y: 46}
+        - {x: -2, y: 29}
+        - {x: -3, y: -85}
+        - {x: -2, y: -128}
+        - {x: 3, y: -128}
+        - {x: 3, y: -83}
+        - {x: 2, y: 40}
+        - {x: 6, y: 57}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a6cf3883077144789abd61cfc093e6
+      internalID: 13633447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: 72}
+        - {x: -2, y: 49}
+        - {x: -3, y: -80}
+        - {x: -3, y: -121}
+        - {x: -2, y: -128}
+        - {x: 2, y: -128}
+        - {x: 3, y: -120}
+        - {x: 3, y: -79}
+        - {x: 3, y: 49}
+        - {x: 5, y: 72}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69ec91a2f880c8408da812c9bbe8d1a
+      internalID: -70635236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_13
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 90}
+        - {x: -3, y: 71}
+        - {x: -3, y: -71}
+        - {x: -2, y: -128}
+        - {x: 2, y: -127}
+        - {x: 3, y: -70}
+        - {x: 2, y: 70}
+        - {x: 4, y: 90}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df767be87183bd41818a2cb7b2e890b
+      internalID: 1715698093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 105}
+        - {x: -2, y: 82}
+        - {x: -3, y: -69}
+        - {x: -2, y: -128}
+        - {x: 1, y: -128}
+        - {x: 2, y: -69}
+        - {x: 3, y: 82}
+        - {x: 6, y: 104}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd117f1e5f6657642a9c15f1f3a64a80
+      internalID: -1742113053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: 121}
+        - {x: -3, y: 27}
+        - {x: -3, y: -55}
+        - {x: -2, y: -127}
+        - {x: 2, y: -126}
+        - {x: 2, y: -54}
+        - {x: 2, y: 27}
+        - {x: 5, y: 122}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4ba9630da4d9243b153887c6251963
+      internalID: -1003706105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -117}
+        - {x: -1, y: -117}
+        - {x: -6, y: -117}
+        - {x: -8, y: -126}
+        - {x: -6, y: -128}
+        - {x: 6, y: -128}
+        - {x: 8, y: -126}
+        - {x: 8, y: -118}
+        - {x: 6, y: -117}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e856197f8a2854548be2888783f08429
+      internalID: -1905214562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_17
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -102}
+        - {x: -3, y: -115}
+        - {x: -2, y: -128}
+        - {x: 2, y: -127}
+        - {x: 2, y: -114}
+        - {x: 5, y: -102}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9550f7e2d74a6dc41917c0f8f7a1df85
+      internalID: 877136394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_18
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -85}
+        - {x: -5, y: -86}
+        - {x: -3, y: -97}
+        - {x: -1, y: -128}
+        - {x: 2, y: -127}
+        - {x: 3, y: -123}
+        - {x: 3, y: -105}
+        - {x: 2, y: -97}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6277b0da5afa34fb7ae34030a0fff9
+      internalID: -1704804079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -69}
+        - {x: -3, y: -83}
+        - {x: -2, y: -108}
+        - {x: -2, y: -128}
+        - {x: 2, y: -127}
+        - {x: 2, y: -122}
+        - {x: 3, y: -107}
+        - {x: 2, y: -82}
+        - {x: 4, y: -70}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54a415c0bb984b4ba9f6ba6264abb91
+      internalID: -139170311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_20
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -54}
+        - {x: -3, y: -74}
+        - {x: -3, y: -99}
+        - {x: -3.6906128, y: -119.02756}
+        - {x: -2, y: -128}
+        - {x: 3, y: -127}
+        - {x: 3, y: -98}
+        - {x: 2, y: -74}
+        - {x: 4, y: -54}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5ee342556a6414e8a6f4dc37188c1f
+      internalID: 278527505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_21
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -37}
+        - {x: -3, y: -65}
+        - {x: -2, y: -101}
+        - {x: -2, y: -125}
+        - {x: -4, y: -128}
+        - {x: 3, y: -127}
+        - {x: 3, y: -100}
+        - {x: 4, y: -65}
+        - {x: 5, y: -37}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d618f20db12d8c249909f53724de0cb0
+      internalID: -826210283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_22
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -21}
+        - {x: -3, y: -36}
+        - {x: -3, y: -91}
+        - {x: -2, y: -128}
+        - {x: 3, y: -127}
+        - {x: 3, y: -90}
+        - {x: 2, y: -37}
+        - {x: 3, y: -21}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97214e95ad2dca14283a2d1e426aebc6
+      internalID: 1657212185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_23
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -6}
+        - {x: -5, y: -6}
+        - {x: -3, y: -71}
+        - {x: -2, y: -128}
+        - {x: 3, y: -128}
+        - {x: 3, y: -119}
+        - {x: 2, y: -71}
+        - {x: 4, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6dc5b5217f414c4aa3e8e1aa43ef1f5
+      internalID: -1206011405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_24
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: 13}
+        - {x: -5, y: 12}
+        - {x: -5, y: 8}
+        - {x: -1, y: -64}
+        - {x: -3, y: -119}
+        - {x: -2, y: -128}
+        - {x: 2, y: -128}
+        - {x: 3, y: -112}
+        - {x: 3, y: -64}
+        - {x: 4, y: 8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07aa4687fa708ae4ba38ad3e3709eac7
+      internalID: -278025173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_25
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2, y: 26}
+        - {x: -6, y: 25}
+        - {x: -3, y: 13}
+        - {x: -2, y: -65}
+        - {x: -3, y: -128}
+        - {x: 2, y: -128}
+        - {x: 2, y: -123}
+        - {x: 3, y: -64}
+        - {x: 2, y: 15}
+        - {x: 4, y: 27}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46ddc27354ea90439230ad2a8ee50a4
+      internalID: -581844672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_26
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: 45}
+        - {x: -4, y: 45}
+        - {x: -5, y: 41}
+        - {x: -3, y: 31}
+        - {x: -3, y: -67}
+        - {x: -2, y: -115}
+        - {x: -2, y: -128}
+        - {x: 2, y: -128}
+        - {x: 3, y: -120}
+        - {x: 2, y: -66}
+        - {x: 2, y: 31}
+        - {x: 5, y: 41}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057c49e948fa8eb4bbda13b094d2396b
+      internalID: 376610042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_27
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: 59}
+        - {x: -4, y: 54}
+        - {x: -2, y: 47}
+        - {x: -3, y: -53}
+        - {x: -1, y: -127}
+        - {x: 2, y: -128}
+        - {x: 1, y: -118}
+        - {x: 2, y: -53}
+        - {x: 2, y: 47}
+        - {x: 6, y: 57}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e698390dbd1ac5f42aceb7ccd6445365
+      internalID: 1562882978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_28
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 75}
+        - {x: -5, y: 73}
+        - {x: -3, y: 51}
+        - {x: -2, y: -39}
+        - {x: -3, y: -72}
+        - {x: -1, y: -128}
+        - {x: 3, y: -128}
+        - {x: 3, y: -72}
+        - {x: 3, y: -39}
+        - {x: 3, y: 51}
+        - {x: 5, y: 74}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63a8d8df5502d03408465d51be3c68a4
+      internalID: 1400345672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_29
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 91}
+        - {x: -4, y: 91}
+        - {x: -3, y: -37}
+        - {x: -3, y: -69}
+        - {x: -3, y: -127}
+        - {x: 3, y: -127}
+        - {x: 2, y: -69}
+        - {x: 2, y: -36}
+        - {x: 3, y: 92}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8610aec78cd194f9b7402ad8cdd336
+      internalID: 1458129015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_30
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: 106}
+        - {x: -4, y: 107}
+        - {x: -3, y: 29}
+        - {x: -3, y: -71}
+        - {x: -1, y: -128}
+        - {x: 4, y: -128}
+        - {x: 3, y: -118}
+        - {x: 2, y: -70}
+        - {x: 3, y: 31}
+        - {x: 4, y: 108}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c2bff317dec23428934e488b610499
+      internalID: -922607914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant_Stalk 1_31
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 0
+        width: 16
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: 123}
+        - {x: -3, y: 90}
+        - {x: -3, y: -21}
+        - {x: -3, y: -96}
+        - {x: -2, y: -128}
+        - {x: 4, y: -128}
+        - {x: 3, y: -123}
+        - {x: 2, y: -97}
+        - {x: 3, y: -21}
+        - {x: 2, y: 91}
+        - {x: 5, y: 123}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4df1a9292b4836439bebc35ad4fdd20
+      internalID: -108956477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +1059,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Plant_Stalk 1_19: -139170311
+      Plant_Stalk 1_12: -70635236
+      Plant_Stalk 1_13: 1715698093
+      Plant_Stalk 1_7: 539832953
+      Plant_Stalk 1_8: 219899336
+      Plant_Stalk 1_15: -1003706105
+      Plant_Stalk 1_14: -1742113053
+      Plant_Stalk 1_21: -826210283
+      Plant_Stalk 1_22: 1657212185
+      Plant_Stalk 1_30: -922607914
+      Plant_Stalk 1_23: -1206011405
+      Plant_Stalk 1_28: 1400345672
+      Plant_Stalk 1_24: -278025173
+      Plant_Stalk 1_10: 1452760449
+      Plant_Stalk 1_16: -1905214562
+      Plant_Stalk 1_0: 2075727810
+      Plant_Stalk 1_31: -108956477
+      Plant_Stalk 1_26: 376610042
+      Plant_Stalk 1_5: -493883307
+      Plant_Stalk 1_3: 1223649698
+      Plant_Stalk 1_20: 278527505
+      Plant_Stalk 1_29: 1458129015
+      Plant_Stalk 1_1: 1105800980
+      Plant_Stalk 1_4: 2104078523
+      Plant_Stalk 1_27: 1562882978
+      Plant_Stalk 1_11: 13633447
+      Plant_Stalk 1_17: 877136394
+      Plant_Stalk 1_18: -1704804079
+      Plant_Stalk 1_2: 1936306425
+      Plant_Stalk 1_9: 1174809867
+      Plant_Stalk 1_6: -729140009
+      Plant_Stalk 1_25: -581844672
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
