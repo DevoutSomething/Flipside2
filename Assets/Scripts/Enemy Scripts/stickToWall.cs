@@ -6,9 +6,11 @@ public class stickToWall : MonoBehaviour
 {
     private GameObject player;
     private bool canStick = true;
+    public TimeManager timeManager;
     private void Start()
     {
         player = GameObject.Find("player");
+        timeManager = GameObject.Find("GameManager").GetComponent<TimeManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +28,7 @@ public class stickToWall : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
             Debug.Log("playerHitStickWall");
             canStick = false;
-            
+            timeManager.SlowDownTime();
             StartCoroutine(ResetCanSticky());
         }
         else if (collision.gameObject.name == "player")
@@ -37,7 +39,8 @@ public class stickToWall : MonoBehaviour
 
     public IEnumerator ResetCanSticky()
     {
-        yield return new WaitForSecondsRealtime(.3f);
+        yield return new WaitForSecondsRealtime(.1f);
         canStick = true;
+        timeManager.ResetTime();
     }
 }
