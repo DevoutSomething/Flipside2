@@ -57,6 +57,7 @@ public class CharecterController : MonoBehaviour
     public bool isActuallyDashing;
     public bool canDash;
     private CameraController cameraController;
+    
 
     [Header("set to zero")]
     public float rotationOnJump;
@@ -71,6 +72,7 @@ public class CharecterController : MonoBehaviour
 
     [Header("attack interface")]
     private meleeAttackManager MeleeAttackManager;
+    public GameObject attackAnim;
     //[Header("Private Variables")]
 
 
@@ -89,6 +91,7 @@ public class CharecterController : MonoBehaviour
         canResetJump = true;
         gameManager = GameObject.Find("GameManager");
         deccelerationPerm = decceleration;
+
     }
     private void Update()
     {
@@ -104,12 +107,16 @@ public class CharecterController : MonoBehaviour
                     MeleeAttackManager.isStuck = false;
                     canJump = true;
                     MeleeAttackManager.canAction = true;
+                    timeManager.ResetTime();
+
                 }
             }
             else if (Input.GetButtonDown("Jump"))
             {
                 JumpInput();
                 MeleeAttackManager.canAction = true;
+                timeManager.ResetTime();
+                attackAnim.gameObject.GetComponent<Animator>().enabled = false;
             }
         }
         if (gameManager.GetComponent<GameManager>().isFlipped == false)
