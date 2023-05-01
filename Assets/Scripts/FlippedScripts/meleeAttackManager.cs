@@ -32,6 +32,8 @@ public class meleeAttackManager : MonoBehaviour
         charecterController = GetComponent<CharecterController>();
         gameManager = GameObject.Find("GameManager");
         baseSpeed = charecterController.moveSpeed;
+        anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 0);
+        anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 1);
 
 
     }
@@ -48,16 +50,16 @@ public class meleeAttackManager : MonoBehaviour
             anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 1);
             anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 0);
         }
-        else
+       /* else
         {
-            anim.SetLayerWeight(anim.GetLayerIndex("claok"), 0);
+            anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 0);
             anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 1);
-        }
+        }     */
     }
     private void CheckInput()
     {
 
-        if (Input.GetButtonDown("Fire2") && canAction)    
+        if (Input.GetButtonDown("Dash") && canAction)    
         {
              
             meleeAttack = true;
@@ -72,7 +74,7 @@ public class meleeAttackManager : MonoBehaviour
             
         }
 
-        else if (Input.GetButtonDown("Fire2") && canTransitionState)
+        else if (Input.GetButtonDown("Dash") && canTransitionState)
         {
             bool canTrans = anim.GetBool("CanTransition");
             bool forAttack = anim.GetBool("ForwardAttack");
@@ -112,7 +114,7 @@ public class meleeAttackManager : MonoBehaviour
             anim.SetBool("UpwardAttack", false);
             anim.SetBool("DownwardAttack", false);
             anim.SetBool("ForwardAttack", false);                                               
-            anim.SetBool("ForwardAttack", false);
+          
             //anim.SetBool("UpwardAttackAir", false);   
 
         }
@@ -122,9 +124,7 @@ public class meleeAttackManager : MonoBehaviour
         {
             
             anim.SetBool("UpwardAttackAir", true);
-            meleeAnimator.SetTrigger("AttackUpAir");
-           
-           
+            meleeAnimator.SetTrigger("AttackUpAir"); 
         }
         
        

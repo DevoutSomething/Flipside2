@@ -57,7 +57,6 @@ public class CharecterController : MonoBehaviour
     public bool isActuallyDashing;
     public bool canDash;
     private CameraController cameraController;
-    
 
     [Header("set to zero")]
     public float rotationOnJump;
@@ -72,7 +71,6 @@ public class CharecterController : MonoBehaviour
 
     [Header("attack interface")]
     private meleeAttackManager MeleeAttackManager;
-    public GameObject attackAnim;
     //[Header("Private Variables")]
 
 
@@ -91,7 +89,6 @@ public class CharecterController : MonoBehaviour
         canResetJump = true;
         gameManager = GameObject.Find("GameManager");
         deccelerationPerm = decceleration;
-
     }
     private void Update()
     {
@@ -107,16 +104,12 @@ public class CharecterController : MonoBehaviour
                     MeleeAttackManager.isStuck = false;
                     canJump = true;
                     MeleeAttackManager.canAction = true;
-                    timeManager.ResetTime();
-
                 }
             }
             else if (Input.GetButtonDown("Jump"))
             {
                 JumpInput();
                 MeleeAttackManager.canAction = true;
-                timeManager.ResetTime();
-                attackAnim.gameObject.GetComponent<Animator>().enabled = false;
             }
         }
         if (gameManager.GetComponent<GameManager>().isFlipped == false)
@@ -193,8 +186,7 @@ public class CharecterController : MonoBehaviour
             }
             if (!Side1)
             {
-                playerAnim.SetBool("runNoFlip", false);
-                playerAnim.SetBool("jumpNoFlip", false);
+               
                 if (isGrounded && Input.GetAxis("Horizontal") != 0)
                 {
                     playerAnim.SetBool("Run", true);
@@ -215,26 +207,27 @@ public class CharecterController : MonoBehaviour
             }
             else
             {
-                playerAnim.SetBool("NotFlip", true);
-                playerAnim.SetBool("Run", false);
-                playerAnim.SetBool("Jump", false);
 
+                
                 if (isGrounded && Input.GetAxis("Horizontal") != 0)
                 {
-                    playerAnim.SetBool("runNoFlip", true);
-                    playerAnim.SetBool("jumpNoFlip", false);
+                    
+                    playerAnim.SetBool("urun", true);
+                    Debug.Log("run");
+                    playerAnim.SetBool("ujump", false);
                 }
                 else
                 {
-                    playerAnim.SetBool("runNoFlip", false);
+                    playerAnim.SetBool("urun", false);
+                    Debug.Log("norun");
                 }
                 if (!isGrounded && isJumping)
                 {
-                    playerAnim.SetBool("jumpNoFlip", true);
+                    playerAnim.SetBool("ujump", true);
                 }
                 else if (isGrounded)
                 {
-                    playerAnim.SetBool("jumpNoFlip", false);
+                    playerAnim.SetBool("ujump", false);
                 }
             }
            

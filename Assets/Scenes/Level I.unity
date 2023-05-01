@@ -8558,7 +8558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162351fe179b933478b102edff291aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFlipped: 1
+  isFlipped: 0
   thingsToReset:
   - {fileID: 0}
   - {fileID: 0}
@@ -10676,7 +10676,6 @@ MonoBehaviour:
   Camera: {fileID: 148981494}
   FacingRight: 0
   playerAnim: {fileID: 0}
-  attackAnim: {fileID: 0}
 --- !u!61 &636634824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63359,7 +63358,7 @@ MonoBehaviour:
   death: 0
   respawnPoint: {x: 0, y: 0}
   attackManagerObject: {fileID: 893626658}
-  currentRoom: 11
+  currentRoom: 1
   Player: {fileID: 636634820}
 --- !u!61 &1887133282
 BoxCollider2D:
