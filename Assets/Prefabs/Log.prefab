@@ -119,7 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55aa4c4d23431f46a8b93da12b28921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Log: {fileID: 0}
+  woodBroken: {fileID: -92254037, guid: 4a45917cf71b8e14084df1ac262a346f, type: 3}
+  woodNormal: {fileID: 345917461, guid: 4a45917cf71b8e14084df1ac262a346f, type: 3}
+  TimeToBreak: 1
+  TimeToErase: 1.8
+  TimeToRespawn: 2.5
+  logs: []
 --- !u!61 &-803471671886983555
 BoxCollider2D:
   m_ObjectHideFlags: 0
