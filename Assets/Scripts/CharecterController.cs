@@ -198,22 +198,25 @@ public class CharecterController : MonoBehaviour
                 if (isGrounded && Input.GetAxis("Horizontal") != 0)
                 {
                     playerAnim.SetBool("Run", true);
+                    Debug.Log("run2");
                     playerAnim.SetBool("Jump", false);
                 }
                 else
                 {
                     playerAnim.SetBool("Run", false);
+                    Debug.Log("norun2");
                 }
                 if (!isGrounded && isJumping)
                 {
                     playerAnim.SetBool("Jump", true);
+
                 }
                 else if (isGrounded)
                 {
                     playerAnim.SetBool("Jump", false);
                 }
             }
-            else
+            else if (Side1)
             {
                 playerAnim.SetBool("NotFlip", true);
                 playerAnim.SetBool("Run", false);
@@ -230,11 +233,14 @@ public class CharecterController : MonoBehaviour
                 }
                 if (!isGrounded && isJumping)
                 {
-                    playerAnim.SetBool("jumpNoFlip", true);
+                    playerAnim.SetBool("ujump", true);
+                    Debug.Log("jump");
                 }
                 else if (isGrounded)
                 {
-                    playerAnim.SetBool("jumpNoFlip", false);
+                    playerAnim.SetBool("ujump", false);
+                    Debug.Log("nojump");
+
                 }
             }
            
