@@ -32,7 +32,8 @@ public class PlayerCon : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRendrer = GetComponent<SpriteRenderer>();
         //spriteRendrer.enabled = false;
-        canMove = false;
+        canMove = true;
+        currentPoint = startPoint;
         SetPlayerPos();
     }
     void Update()
