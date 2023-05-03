@@ -19,12 +19,25 @@ public class ObstacleMove : MonoBehaviour
     public bool moveWithPlayer;
     private bool hasTouchedPlayer = false;
     private Vector2 startPos;
+    private GameObject gameManager;
     private void Start()
     {
         startPos = transform.position;
         movingToPos1 = true;
         pos1 = object1.transform.position;
         pos2 = object2.transform.position;
+        gameManager = GameObject.Find("GameManager");
+    }
+    private void Update()
+    {
+        if (gameManager.GetComponent<GameManager>().isFlipped)
+        {
+            startPos = pos1;
+        }
+        else
+        {
+            startPos = pos2;
+        }
     }
     void FixedUpdate()
     {

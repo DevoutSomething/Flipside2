@@ -85,6 +85,7 @@ public class ChangeZone : MonoBehaviour
         {
             if (collision.gameObject.name == "player" && inZone)
             {
+                gameManager.GetComponent<roomReset>().restartroom(changeZone.zoneNum);
                 Debug.Log(" Collide with gate");
                 changeZone.inZone = true;
                 inZone = false;
@@ -101,6 +102,7 @@ public class ChangeZone : MonoBehaviour
         {
             if (collision.gameObject.name == "player" && inZone)
             {
+                gameManager.GetComponent<roomReset>().restartroom(changeFlipZone.zoneNum);
                 player.GetComponent<PlayerHealth>().currentRoom = changeZone.zoneNum;
                 changeFlipZone.inZone = true;
                 inZone = false;
@@ -118,6 +120,7 @@ public class ChangeZone : MonoBehaviour
         {
             if(collision.gameObject.name == "player" && !inZone)
             {
+                gameManager.GetComponent<roomReset>().restartroom(zoneNum);
                 Debug.Log(" Collide with gate");
                 changeZone.inZone = false;
                 inZone = true;
