@@ -193,8 +193,7 @@ public class CharecterController : MonoBehaviour
             }
             if (!Side1)
             {
-                playerAnim.SetBool("runNoFlip", false);
-                playerAnim.SetBool("jumpNoFlip", false);
+               
                 if (isGrounded && Input.GetAxis("Horizontal") != 0)
                 {
                     playerAnim.SetBool("Run", true);
@@ -218,18 +217,16 @@ public class CharecterController : MonoBehaviour
             }
             else if (Side1)
             {
-                playerAnim.SetBool("NotFlip", true);
-                playerAnim.SetBool("Run", false);
-                playerAnim.SetBool("Jump", false);
+              
 
                 if (isGrounded && Input.GetAxis("Horizontal") != 0)
                 {
-                    playerAnim.SetBool("runNoFlip", true);
-                    playerAnim.SetBool("jumpNoFlip", false);
+                    playerAnim.SetBool("urun", true);
+                    playerAnim.SetBool("ujump", false);
                 }
                 else
                 {
-                    playerAnim.SetBool("runNoFlip", false);
+                    playerAnim.SetBool("urun", false);
                 }
                 if (!isGrounded && isJumping)
                 {
