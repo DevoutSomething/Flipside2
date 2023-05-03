@@ -40,10 +40,10 @@ public class meleeAttackManager : MonoBehaviour
     }
     private void Update()
     {
-      
+
         if (gameManager.GetComponent<GameManager>().isFlipped)
         {
-             CheckInput();
+            CheckInput();
         }
         checkDash();
         if (gameManager.GetComponent<GameManager>().isFlipped == true)
@@ -51,18 +51,18 @@ public class meleeAttackManager : MonoBehaviour
             anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 1);
             anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 0);
         }
-       /* else
-        {
-            anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 0);
-            anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 1);
-        }     */
+        /* else
+         {
+             anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 0);
+             anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 1);
+         }     */
     }
     private void CheckInput()
     {
 
-        if (Input.GetButtonDown("Dash") && canAction)    
+        if (Input.GetButtonDown("Dash") && canAction)
         {
-             
+
             meleeAttack = true;
             canAction = false;
             Debug.Log("working melee");
@@ -72,7 +72,7 @@ public class meleeAttackManager : MonoBehaviour
             {
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
-            
+
         }
 
         else if (Input.GetButtonDown("Dash") && canTransitionState)
@@ -96,26 +96,26 @@ public class meleeAttackManager : MonoBehaviour
             bool udashup = anim.GetBool("udashup");
             bool ucrouchup = anim.GetBool("ucrouchup");
             StartCoroutine(AttackNoAction());
-           /* if(canTrans && forAttack && Input.GetAxis("Vertical") != 0)
-            {
-                anim.SetBool("UpwardAttack", true);
-                meleeAnimator.SetTrigger("AttackUp");
-            }
-            if (canTrans && upAttack && meleeAttack && Input.GetAxis("Vertical") < 0 && !charecterController.isGrounded)
-            {
-                anim.SetBool("UpwardAttackAir", false);
-                anim.SetBool("DownwardAttack", true);
-                meleeAnimator.SetTrigger("AttackDown");
-            }            */
-          
+            /* if(canTrans && forAttack && Input.GetAxis("Vertical") != 0)
+             {
+                 anim.SetBool("UpwardAttack", true);
+                 meleeAnimator.SetTrigger("AttackUp");
+             }
+             if (canTrans && upAttack && meleeAttack && Input.GetAxis("Vertical") < 0 && !charecterController.isGrounded)
+             {
+                 anim.SetBool("UpwardAttackAir", false);
+                 anim.SetBool("DownwardAttack", true);
+                 meleeAnimator.SetTrigger("AttackDown");
+             }            */
+
         }
         else
         {
             meleeAttack = false;
             anim.SetBool("UpwardAttack", false);
             anim.SetBool("DownwardAttack", false);
-            anim.SetBool("ForwardAttack", false);                                               
-          
+            anim.SetBool("ForwardAttack", false);
+
             //anim.SetBool("UpwardAttackAir", false);   
 
         }
@@ -123,31 +123,31 @@ public class meleeAttackManager : MonoBehaviour
 
         if (meleeAttack && Input.GetAxis("Vertical") > 0 && !charecterController.isGrounded && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
-            
+
             anim.SetBool("UpwardAttackAir", true);
-            meleeAnimator.SetTrigger("AttackUpAir"); 
+            meleeAnimator.SetTrigger("AttackUpAir");
         }
-        
-       
-        
-        
+
+
+
+
         if (meleeAttack && Input.GetAxis("Vertical") < 0 && !charecterController.isGrounded && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
-           
+
             anim.SetBool("DownwardAttack", true);
             meleeAnimator.SetTrigger("AttackDown");
         }
-        if(meleeAttack && Input.GetAxis("Vertical") == 0 || meleeAttack && (Input.GetAxis("Vertical") < 0 && charecterController.isGrounded) && gameManager.GetComponent<GameManager>().isFlipped == true)
+        if (meleeAttack && Input.GetAxis("Vertical") == 0 || meleeAttack && (Input.GetAxis("Vertical") < 0 && charecterController.isGrounded) && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
-            
+
             anim.SetBool("ForwardAttack", true);
             meleeAnimator.SetTrigger("AttackSide");
         }
-        if(Input.GetAxis("Horizontal") != 0 && charecterController.isGrounded && meleeAttack == true && gameManager.GetComponent<GameManager>().isFlipped == true)
+        if (Input.GetAxis("Horizontal") != 0 && charecterController.isGrounded && meleeAttack == true && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
             Debug.Log("archer left me");
             //ResetAnim();
-            
+
             //anim.SetBool("UpwardAttack", false);
             anim.ResetTrigger("UpwardAttack");
             anim.SetBool("Run", true);
@@ -158,7 +158,7 @@ public class meleeAttackManager : MonoBehaviour
             Debug.Log("Archer saved me");
             //ResetAnim();
             anim.SetBool("Jump", true);
-           // meleeAnimator.SetBool("Idle2", true);
+            // meleeAnimator.SetBool("Idle2", true);
         }
         if (Input.GetButtonUp("Dash") && !charecterController.isGrounded && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
@@ -174,12 +174,12 @@ public class meleeAttackManager : MonoBehaviour
 
 
         }
-        
+
         if (charecterController.isGrounded && meleeAttack == false)
         {
 
             resetBadAnim();
-          //  Debug.Log("help me");
+            //  Debug.Log("help me");
 
         }
 
@@ -187,46 +187,46 @@ public class meleeAttackManager : MonoBehaviour
 
     private void checkDash()
     {
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Vertical") == 0 && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
+        /* if (Input.GetButtonUp("Dash") && Input.GetAxis("Vertical") == 0 && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == true)
+         {
 
-            anim.SetTrigger("SideDash");
-        }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
-            anim.SetTrigger("SideDash");
-        }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
-            anim.SetTrigger("SideDash");
-        }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
-            anim.SetTrigger("SideDash");
-        }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
-            anim.SetTrigger("SideDash");
-        }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
-            anim.SetTrigger("UpDash");
-            if (charecterController.isGrounded)
-            {
-                anim.ResetTrigger("UpDash");
-                anim.SetTrigger("SideDash");
-            }
-        }
-        if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
+             anim.SetTrigger("SideDash");
+         }
+         if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
+         {
+             anim.SetTrigger("SideDash");
+         }
+         if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
+         {
+             anim.SetTrigger("SideDash");
+         }
+         if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
+         {
+             anim.SetTrigger("SideDash");
+         }
+         if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
+         {
+             anim.SetTrigger("SideDash");
+         }
+         if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
+         {
+             anim.SetTrigger("UpDash");
+             if (charecterController.isGrounded)
+             {
+                 anim.ResetTrigger("UpDash");
+                 anim.SetTrigger("SideDash");
+             }
+         }
+         if (Input.GetButtonUp("Dash") && Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0 && gameManager.GetComponent<GameManager>().isFlipped == true)
+         {
 
-            anim.SetTrigger("DownDash");
-            if (charecterController.isGrounded)
-            {                                                                                                                                  
-                anim.ResetTrigger("DownDash");
-                
-            }
-        }
+             anim.SetTrigger("DownDash");
+             if (charecterController.isGrounded)
+             {                                                                                                                                  
+                 anim.ResetTrigger("DownDash");
+
+             }
+         } */
         if (Input.GetButtonUp("Dash") && Input.GetAxis("Vertical") == 0 && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
 
@@ -268,8 +268,8 @@ public class meleeAttackManager : MonoBehaviour
             }
         }
         BoxCollider2D boxcol = player.GetComponent<BoxCollider2D>();
-        CircleCollider2D circol = player.GetComponent<CircleCollider2D>(); 
-        if (Input.GetAxis("Vertical") < -0.9 && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == true)
+        CircleCollider2D circol = player.GetComponent<CircleCollider2D>();
+        if (Input.GetAxis("Vertical") < -0.9 && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == true || Input.GetKeyDown("s") && gameManager.GetComponent<GameManager>().isFlipped == true && charecterController.isGrounded && meleeAttack == false)
         {
             anim.SetBool("Crouch", true);
             boxcol.size = new Vector2(1.3f, .9f);
@@ -278,19 +278,19 @@ public class meleeAttackManager : MonoBehaviour
             circol.radius = (.45f);
             circol.offset = new Vector2(.1f, -.35f);
         }
-        if (Input.GetAxis("Vertical") >= -0.5 && gameManager.GetComponent<GameManager>().isFlipped == true)
+        if (Input.GetAxis("Vertical") >= -0.5 && gameManager.GetComponent<GameManager>().isFlipped == true || Input.GetKeyDown("s") && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
             anim.SetBool("Crouch", false);
             charecterController.moveSpeed = baseSpeed;
             boxcol.size = new Vector2(1.3f, 1.45f);
             boxcol.offset = new Vector2(.1f, -.07f);
             circol.radius = (.65f);
-            circol.offset = new Vector2 (.1f, -.14f);
+            circol.offset = new Vector2(.1f, -.14f);
 
 
 
         }
-        if (Input.GetAxis("Vertical") < -0.9 && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == false)
+        if (Input.GetAxis("Vertical") < -0.9 && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == false || Input.GetKeyDown("s") && gameManager.GetComponent<GameManager>().isFlipped == false && charecterController.isGrounded)
         {
             anim.SetBool("ucrouchup", true);
             boxcol.size = new Vector2(1.3f, .9f);
@@ -299,7 +299,7 @@ public class meleeAttackManager : MonoBehaviour
             circol.radius = (.45f);
             circol.offset = new Vector2(.1f, -.35f);
         }
-        if (Input.GetAxis("Vertical") >= -.5 && gameManager.GetComponent<GameManager>().isFlipped == false)
+        if (Input.GetAxis("Vertical") >= -.5 && gameManager.GetComponent<GameManager>().isFlipped == false || Input.GetKeyUp("s") && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             anim.SetBool("ucrouchup", false);
             charecterController.moveSpeed = baseSpeed;

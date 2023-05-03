@@ -9883,7 +9883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162351fe179b933478b102edff291aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFlipped: 1
+  isFlipped: 0
   thingsToReset:
   - {fileID: 0}
   - {fileID: 0}
@@ -12220,16 +12220,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 636634820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737e301115945e3458783706895516ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 90e808b7d9edf594c8c26fbf64e738d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultForce: 400
-  upwardsForce: 500
+  defaultForce: 0
+  upwardsForce: 0
   movementTime: 0.1
   player: {fileID: 636634820}
   meleeAnimator: {fileID: 893626662}
-  attackCooldown: 0.3
-  timeCantAction: 0.4
+  attackCooldown: 0
+  timeCantAction: 0
   canAction: 0
   canAttack: 0
   Nuke: {fileID: 0}
