@@ -7,7 +7,7 @@ public class Background : MonoBehaviour
     public GameObject Camera;
     void Start()
     {
-        gameObject.
+        
     }
 
     void Update()
