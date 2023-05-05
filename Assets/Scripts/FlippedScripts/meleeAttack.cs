@@ -57,20 +57,20 @@ public class meleeAttack : MonoBehaviour
         //check if object affects vertical momentum then sets variables for collision
         if (objHealth.giveUpwardForce)
         {
-            if (Input.GetAxis("Vertical") < 0 && !characterController.isGrounded && objHealth.bounceCollide)
+            if (Input.GetAxis("Vertical") < -0.1 && !characterController.isGrounded && objHealth.bounceCollide)
             {
                 bounceMultActive = true;
                 direction = Vector2.up;
                 downwardStrike = true;
                 collided = true;
             }
-            else if (Input.GetAxis("Vertical") < 0 && !characterController.isGrounded)
+            else if (Input.GetAxis("Vertical") < -.1 && !characterController.isGrounded)
             {
                 direction = Vector2.up;
                 downwardStrike = true;
                 collided = true;
             }
-            else if (Input.GetAxis("Vertical") > 0 && !characterController.isGrounded && objHealth.bounceCollide)
+            else if (Input.GetAxis("Vertical") > 0.1 && !characterController.isGrounded && objHealth.bounceCollide)
             {
                 bounceMultActive = true;
                 direction = Vector2.down;
@@ -78,7 +78,7 @@ public class meleeAttack : MonoBehaviour
                 UpStrike = true;
             }
 
-            else if (Input.GetAxis("Vertical") > 0 && !characterController.isGrounded)
+            else if (Input.GetAxis("Vertical") > 0.1 && !characterController.isGrounded)
             {
                 direction = Vector2.down;
                 collided = true;
@@ -157,8 +157,9 @@ public class meleeAttack : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(direction * MeleeAttackManager.upwardsForce * mult);
             }
-            else if (characterController.isGrounded && UpStrike)
+            else if(UpStrike && characterController.isGrounded == false)
             {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(-direction * MeleeAttackManager.upwardsForce * mult);
             }
             else
