@@ -269,15 +269,18 @@ public class CharecterController : MonoBehaviour
             }
             #endregion
             #region directionFacing
-            if (Input.GetAxis("Horizontal") <= 1 && (Input.GetAxis("Horizontal")) > 0 && MeleeAttackManager.isStuck == false)
+            if (gameManager.GetComponent<PauseScript>().GameIsPaused == false)
             {
-                facingForward = true;
-                transform.localScale = new Vector2(1, transform.localScale.y);
-            }
-            else if (Input.GetAxis("Horizontal") >= -1 && (Input.GetAxis("Horizontal")) < 0 && MeleeAttackManager.isStuck == false)
-            {
-                facingForward = false;
-                transform.localScale = new Vector2(-1, transform.localScale.y);
+                if (Input.GetAxis("Horizontal") <= 1 && (Input.GetAxis("Horizontal")) > 0 && MeleeAttackManager.isStuck == false)
+                {
+                    facingForward = true;
+                    transform.localScale = new Vector2(1, transform.localScale.y);
+                }
+                else if (Input.GetAxis("Horizontal") >= -1 && (Input.GetAxis("Horizontal")) < 0 && MeleeAttackManager.isStuck == false)
+                {
+                    facingForward = false;
+                    transform.localScale = new Vector2(-1, transform.localScale.y);
+                }
             }
             #endregion
 
