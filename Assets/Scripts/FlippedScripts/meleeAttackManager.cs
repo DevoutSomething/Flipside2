@@ -269,7 +269,7 @@ public class meleeAttackManager : MonoBehaviour
         }
         BoxCollider2D boxcol = player.GetComponent<BoxCollider2D>();
         CircleCollider2D circol = player.GetComponent<CircleCollider2D>();
-        if (Input.GetAxis("Vertical") < -0.9 && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == true || Input.GetKeyDown("s") && gameManager.GetComponent<GameManager>().isFlipped == true && charecterController.isGrounded && meleeAttack == false)
+        if (Input.GetAxis("Vertical") < -0.9 && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
             anim.SetBool("Crouch", true);
             boxcol.size = new Vector2(1.3f, .9f);
@@ -278,7 +278,7 @@ public class meleeAttackManager : MonoBehaviour
             circol.radius = (.45f);
             circol.offset = new Vector2(.1f, -.35f);
         }
-        if (Input.GetAxis("Vertical") >= -0.5 && gameManager.GetComponent<GameManager>().isFlipped == true || Input.GetKeyDown("s") && gameManager.GetComponent<GameManager>().isFlipped == true)
+        if (Input.GetAxis("Vertical") >= -0.5 && gameManager.GetComponent<GameManager>().isFlipped == true)
         {
             anim.SetBool("Crouch", false);
             charecterController.moveSpeed = baseSpeed;
@@ -290,7 +290,7 @@ public class meleeAttackManager : MonoBehaviour
 
 
         }
-        if (Input.GetAxis("Vertical") < -0.9 && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == false || Input.GetKeyDown("s") && gameManager.GetComponent<GameManager>().isFlipped == false && charecterController.isGrounded)
+        if (Input.GetAxis("Vertical") < -0.9  && charecterController.isGrounded && meleeAttack == false && gameManager.GetComponent<GameManager>().isFlipped == false)
         {
             anim.SetBool("ucrouchup", true);
             boxcol.size = new Vector2(1.3f, .9f);

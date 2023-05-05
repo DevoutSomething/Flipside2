@@ -231,12 +231,10 @@ public class CharecterController : MonoBehaviour
                 if (!isGrounded && isJumping)
                 {
                     playerAnim.SetBool("ujump", true);
-                    Debug.Log("jump");
                 }
                 else if (isGrounded)
                 {
                     playerAnim.SetBool("ujump", false);
-                    Debug.Log("nojump");
 
                 }
             }

@@ -9979,7 +9979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162351fe179b933478b102edff291aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFlipped: 0
+  isFlipped: 1
   thingsToReset:
   - {fileID: 0}
   - {fileID: 0}
@@ -11875,6 +11875,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529658684}
     m_Modifications:
+    - target: {fileID: 1630216306, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
+      propertyPath: bounceCollide
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7201461913587836889, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -12139,13 +12143,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e808b7d9edf594c8c26fbf64e738d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultForce: 0
-  upwardsForce: 0
+  defaultForce: 200
+  upwardsForce: 700
   movementTime: 0.1
   player: {fileID: 636634820}
   meleeAnimator: {fileID: 893626662}
-  attackCooldown: 0
-  timeCantAction: 0
+  attackCooldown: 0.4
+  timeCantAction: 0.2
   canAction: 0
   canAttack: 0
   Nuke: {fileID: 0}
@@ -12297,6 +12301,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529658684}
     m_Modifications:
+    - target: {fileID: 1630216306, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
+      propertyPath: bounceCollide
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2672558598087988638, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
       propertyPath: bounceCollide
       value: 1
@@ -13807,6 +13815,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529658684}
     m_Modifications:
+    - target: {fileID: 1630216306, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
+      propertyPath: bounceCollide
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2672558598087988638, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
       propertyPath: bounceCollide
       value: 1
@@ -59326,6 +59338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529658684}
     m_Modifications:
+    - target: {fileID: 1630216306, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
+      propertyPath: bounceCollide
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7201461914714879483, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -63208,7 +63224,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!483693784 &1488160276
 TilemapRenderer:
@@ -73588,6 +73604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529658684}
     m_Modifications:
+    - target: {fileID: 1630216306, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
+      propertyPath: bounceCollide
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7201461914714879481, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
       propertyPath: m_Mass
       value: 10
@@ -74218,7 +74238,7 @@ MonoBehaviour:
   death: 0
   respawnPoint: {x: 0, y: 0}
   attackManagerObject: {fileID: 893626658}
-  currentRoom: 1
+  currentRoom: 11
   Player: {fileID: 636634820}
 --- !u!61 &1887133282
 BoxCollider2D:
@@ -75331,6 +75351,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529658684}
     m_Modifications:
+    - target: {fileID: 1630216306, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
+      propertyPath: bounceCollide
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7201461914714879483, guid: 98808db79b6ac34448e2c154872fafd1, type: 3}
       propertyPath: m_RootOrder
       value: 0

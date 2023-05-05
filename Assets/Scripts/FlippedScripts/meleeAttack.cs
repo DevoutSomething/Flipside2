@@ -154,7 +154,7 @@ public class meleeAttack : MonoBehaviour
         {
             if (downwardStrike)
             {
-                rb.velocity = new Vector2(rb.velocity.x * .1f, 0);
+                rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(direction * MeleeAttackManager.upwardsForce * mult);
             }
             else if (characterController.isGrounded && UpStrike)
