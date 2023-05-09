@@ -96,7 +96,7 @@ public class PlayerCon : MonoBehaviour
                 animationSet = false;
             }
         }
-        if(x > 0.5f)
+        else if(x > 0.5f)
         {
             if (currentPoint.right != null)
             {
@@ -105,7 +105,7 @@ public class PlayerCon : MonoBehaviour
                 animationSet = false;
             }
         }
-        if(y < -0.5f)
+        else if(y < -0.5f)
         {
             if (currentPoint.down != null)
             {
@@ -114,7 +114,7 @@ public class PlayerCon : MonoBehaviour
                 animationSet = false;
             }
         }
-        if(x < -0.5f)
+        else if(x < -0.5f)
         {
             if (currentPoint.left != null)
             {
