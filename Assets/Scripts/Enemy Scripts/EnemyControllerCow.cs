@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private bool attackMode;
     public float agroTime;
     [SerializeField] private float agroTimer;
+    private Vector2 startPos;
 
 
     private void Start()
@@ -49,6 +50,7 @@ public class EnemyController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
         turnTimer = 0;
+        startPos = transform.position;
     }
     void Update()
     {
@@ -273,5 +275,10 @@ public class EnemyController : MonoBehaviour
                 agroTimer -= Time.deltaTime;
             }
         }
+    }
+
+    public void ResetCow()
+    {
+        transform.position = startPos;
     }
 }
