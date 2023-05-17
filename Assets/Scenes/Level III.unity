@@ -356,7 +356,7 @@ MonoBehaviour:
   inZone: 0
   saveZone: 0
   zoneNum: 6
-  changeZone: {fileID: 0}
+  changeZone: {fileID: 1789839061}
   changeFlipZone: {fileID: 0}
   roomCamSize: 5
   zoneRespawnLocation: {fileID: 596097847}
@@ -5895,7 +5895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015373499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.75, y: 30.13, z: 0}
+  m_LocalPosition: {x: 15.9, y: 32.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6833,7 +6833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588867195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.39, y: 26.5, z: 0}
+  m_LocalPosition: {x: 3.03, y: 8.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6852,7 +6852,7 @@ GameObject:
   - component: {fileID: 1644706444}
   - component: {fileID: 1644706443}
   - component: {fileID: 1644706441}
-  - component: {fileID: 1644706440}
+  - component: {fileID: 1644706446}
   - component: {fileID: 1644706445}
   m_Layer: 7
   m_Name: DIE
@@ -6876,28 +6876,6 @@ Transform:
   m_Father: {fileID: 1778718067}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!66 &1644706440
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644706438}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!50 &1644706441
 Rigidbody2D:
   serializedVersion: 4
@@ -9248,6 +9226,28 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!66 &1644706446
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644706438}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &1690306450
 GameObject:
   m_ObjectHideFlags: 0
@@ -9443,7 +9443,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 15.868835, y: 22.123672}
+  m_Offset: {x: 21.929996, y: 14.689048}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9454,7 +9454,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.101044, y: 0.22858429}
+  m_Size: {x: 0.24791718, y: 15.097834}
   m_EdgeRadius: 0
 --- !u!114 &1789839061
 MonoBehaviour:
@@ -9471,7 +9471,7 @@ MonoBehaviour:
   isFinalUnFlip: 0
   inZone: 0
   saveZone: 0
-  zoneNum: 6
+  zoneNum: 7
   changeZone: {fileID: 0}
   changeFlipZone: {fileID: 0}
   roomCamSize: 5
