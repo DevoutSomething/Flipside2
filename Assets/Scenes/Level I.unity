@@ -2193,7 +2193,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.8681488, y: 15.709446}
+  m_Offset: {x: 2.9514923, y: 15.709446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2204,7 +2204,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.0336, y: 2.5363464}
+  m_Size: {x: 12.866913, y: 2.5363464}
   m_EdgeRadius: 0
 --- !u!114 &307746652
 MonoBehaviour:
@@ -73085,7 +73085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853fe40b3f1d428438994a1d4cf51759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: 1
+  damageable: 0
   giveUpwardForce: 0
   bounceCollide: 0
   giveDashReset: 0
@@ -75236,7 +75236,7 @@ MonoBehaviour:
   death: 0
   respawnPoint: {x: 0, y: 0}
   attackManagerObject: {fileID: 893626658}
-  currentRoom: 9
+  currentRoom: 1
   Player: {fileID: 636634820}
 --- !u!61 &1887133282
 BoxCollider2D:

@@ -60,6 +60,12 @@ public class roomReset : MonoBehaviour
                     Debug.Log("No Reset Found in " + thingsToReset[i]);
                 }
             }
+            if(thingsToReset[i].GetComponent<Rigidbody2D>() != null)
+            {
+                Rigidbody2D rb;
+                rb = thingsToReset[i].GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2(0f, 0f);
+            }
             if (thingsToReset[i].GetComponent<PlantGoUp>() != null)
             {
                 PlantGoUp plantGoUp = thingsToReset[i].GetComponent<PlantGoUp>();

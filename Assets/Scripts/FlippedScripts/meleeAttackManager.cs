@@ -16,7 +16,7 @@ public class meleeAttackManager : MonoBehaviour
     public bool canAction;
     public bool canAttack;
     private Animator anim;
-    public GameObject Nuke;
+    public ParticleSystem Nuke;
     public bool isStuck = false;
     private CharecterController charecterController;
     private Rigidbody2D rb;
@@ -35,6 +35,7 @@ public class meleeAttackManager : MonoBehaviour
         baseSpeed = charecterController.moveSpeed;
         anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 0);
         anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 1);
+        
 
 
     }
@@ -56,6 +57,7 @@ public class meleeAttackManager : MonoBehaviour
              anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 0);
              anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 1);
          }     */
+       
     }
     private void CheckInput()
     {
