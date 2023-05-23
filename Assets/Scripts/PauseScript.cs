@@ -12,6 +12,10 @@ public class PauseScript : MonoBehaviour
     public GameObject pauseFirstButton;
     private void Update()
     {
+        if (GameIsPaused)
+        {
+            Pause();
+        }
         if (Input.GetButtonDown("Pause"))
         {
             if (GameIsPaused)
@@ -22,6 +26,7 @@ public class PauseScript : MonoBehaviour
             else
             {
                 Pause();
+
             }
 
 

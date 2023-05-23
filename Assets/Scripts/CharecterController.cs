@@ -96,194 +96,198 @@ public class CharecterController : MonoBehaviour
     private void Update()
     {
         //If stuck and can't action bug fix
-        if (rb.constraints == RigidbodyConstraints2D.FreezePosition)
+        if (gameManager.GetComponent<PauseScript>().GameIsPaused == false)
         {
-            if (Input.GetButtonDown("Dash") || Input.GetButtonDown("Fire2"))
+
+            if (rb.constraints == RigidbodyConstraints2D.FreezePosition)
             {
-                if (MeleeAttackManager.isStuck == true && MeleeAttackManager.canAction == false)
+                if (Input.GetButtonDown("Dash") || Input.GetButtonDown("Fire2"))
                 {
-                    rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
-                    canBypassJump = false;
-                    MeleeAttackManager.isStuck = false;
-                    canJump = true;
+                    if (MeleeAttackManager.isStuck == true && MeleeAttackManager.canAction == false)
+                    {
+                        rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+                        canBypassJump = false;
+                        MeleeAttackManager.isStuck = false;
+                        canJump = true;
+                        MeleeAttackManager.canAction = true;
+                        timeManager.ResetTime();
+
+                    }
+                }
+                else if (Input.GetButtonDown("Jump"))
+                {
+                    JumpInput();
                     MeleeAttackManager.canAction = true;
                     timeManager.ResetTime();
-
+                    attackAnim.gameObject.GetComponent<Animator>().enabled = false;
                 }
             }
-            else if (Input.GetButtonDown("Jump"))
+            if (gameManager.GetComponent<GameManager>().isFlipped == false)
             {
-                JumpInput();
-                MeleeAttackManager.canAction = true;
-                timeManager.ResetTime();
-                attackAnim.gameObject.GetComponent<Animator>().enabled = false;
+                Side1 = true;
             }
-        }
-        if (gameManager.GetComponent<GameManager>().isFlipped == false)
-        {
-            Side1 = true;
-        }
-        else
-        {
-            Side1 = false;
-        }
-        groundCheck();
-        if (Side1)
-        {
-            #region Dashing
-            var dashInput = Input.GetButtonDown("Dash");
-            var dashInputUp = Input.GetButtonUp("Dash");
-            if (isDashing && dashInputUp || slowDownLength <= 0 && isDashing)
+            else
             {
-                hasDashedAir = true;
-                slowDownLength = 2;
-                isDashing = false;
-                isActuallyDashing = true;
-                dashingDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-                if (dashingDir == Vector2.zero)
+                Side1 = false;
+            }
+            groundCheck();
+            if (Side1)
+            {
+                #region Dashing
+                var dashInput = Input.GetButtonDown("Dash");
+                var dashInputUp = Input.GetButtonUp("Dash");
+                if (isDashing && dashInputUp || slowDownLength <= 0 && isDashing)
                 {
-                    if (FacingRight)
+                    hasDashedAir = true;
+                    slowDownLength = 2;
+                    isDashing = false;
+                    isActuallyDashing = true;
+                    dashingDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+                    if (dashingDir == Vector2.zero)
                     {
-                        dashingDir = new Vector2(1, 0);
+                        if (FacingRight)
+                        {
+                            dashingDir = new Vector2(1, 0);
+                        }
+                        else
+                        {
+                            dashingDir = new Vector2(-1, 0);
+                        }
+                    }
+                    timeManager.ResetTime();
+                    cameraController.FinishedDash();
+                    isDashing = false;
+                    slowDownLength = 2f;
+                    StartCoroutine(StopDashing());
+                    //add dash stop
+                }
+                if (isActuallyDashing)
+                {
+                    rb.velocity = dashingDir.normalized * dashSpeed;
+                    return;
+                }
+
+                if (dashInput && canDash)
+                {
+                    slowDownLength = 2f;
+                    canResetDash = false;
+                    canDash = false;
+                    isDashing = true;
+                    MeleeAttackManager.canAction = false;
+                    StartCoroutine(TimeBeforeSlow());
+                }
+
+
+
+
+                #endregion
+            }
+            if (MeleeAttackManager.canAction && MeleeAttackManager.canAttack)
+            {
+                moveDirection = Input.GetAxis("Horizontal");
+                if (moveDirection > 0 && MeleeAttackManager.isStuck == false)
+                {
+                    FacingRight = true;
+                }
+                else if (moveDirection < 0 && MeleeAttackManager.isStuck == false)
+                {
+                    FacingRight = false;
+                }
+                if (!Side1)
+                {
+
+                    if (isGrounded && Input.GetAxis("Horizontal") != 0)
+                    {
+                        playerAnim.SetBool("Run", true);
+                        Debug.Log("run2");
+                        playerAnim.SetBool("Jump", false);
                     }
                     else
                     {
-                        dashingDir = new Vector2(-1, 0);
+                        playerAnim.SetBool("Run", false);
+                        Debug.Log("norun2");
+                    }
+                    if (!isGrounded && isJumping)
+                    {
+                        playerAnim.SetBool("Jump", true);
+
+                    }
+                    else if (isGrounded)
+                    {
+                        playerAnim.SetBool("Jump", false);
                     }
                 }
-                timeManager.ResetTime();
-                cameraController.FinishedDash();
-                isDashing = false;
-                slowDownLength = 2f;
-                StartCoroutine(StopDashing());
-                //add dash stop
-            }
-            if (isActuallyDashing)
-            {
-                rb.velocity = dashingDir.normalized * dashSpeed;
-                return;
-            }
-
-            if (dashInput && canDash)
-            {
-                slowDownLength = 2f;
-                canResetDash = false;
-                canDash = false;
-                isDashing = true;
-                MeleeAttackManager.canAction = false;
-                StartCoroutine(TimeBeforeSlow());
-            }
-
-
-
-
-            #endregion
-        }
-        if (MeleeAttackManager.canAction && MeleeAttackManager.canAttack)
-        {
-            moveDirection = Input.GetAxis("Horizontal");
-            if (moveDirection > 0 && MeleeAttackManager.isStuck == false)
-            {
-                FacingRight = true;
-            }
-            else if (moveDirection < 0 && MeleeAttackManager.isStuck == false)
-            {
-                FacingRight = false;
-            }
-            if (!Side1)
-            {
-               
-                if (isGrounded && Input.GetAxis("Horizontal") != 0)
+                else if (Side1)
                 {
-                    playerAnim.SetBool("Run", true);
-                    Debug.Log("run2");
-                    playerAnim.SetBool("Jump", false);
-                }
-                else
-                {
-                    playerAnim.SetBool("Run", false);
-                    Debug.Log("norun2");
-                }
-                if (!isGrounded && isJumping)
-                {
-                    playerAnim.SetBool("Jump", true);
 
-                }
-                else if (isGrounded)
-                {
-                    playerAnim.SetBool("Jump", false);
-                }
-            }
-            else if (Side1)
-            {
-              
 
-                if (isGrounded && Input.GetAxis("Horizontal") != 0)
-                {
-                    playerAnim.SetBool("urun", true);
-                    playerAnim.SetBool("ujump", false);
-                }
-                else
-                {
-                    playerAnim.SetBool("urun", false);
-                }
-                if (!isGrounded && isJumping)
-                {
-                    playerAnim.SetBool("ujump", true);
-                }
-                else if (isGrounded)
-                {
-                    playerAnim.SetBool("ujump", false);
+                    if (isGrounded && Input.GetAxis("Horizontal") != 0)
+                    {
+                        playerAnim.SetBool("urun", true);
+                        playerAnim.SetBool("ujump", false);
+                    }
+                    else
+                    {
+                        playerAnim.SetBool("urun", false);
+                    }
+                    if (!isGrounded && isJumping)
+                    {
+                        playerAnim.SetBool("ujump", true);
+                    }
+                    else if (isGrounded)
+                    {
+                        playerAnim.SetBool("ujump", false);
 
+                    }
                 }
-            }
-           
 
-            if (!isGrounded)
-            {
-                lastTimeGrounded += Time.deltaTime;
-            }
 
- 
-            #region Jump
-  
-            
-            if (Input.GetButtonDown("Jump") && lastTimeGrounded < CoyoteTime && !isJumping && jumpBufferTemp <= 0 && !isActuallyDashing && canJump &&  !isStuck || Input.GetButtonDown("Jump") && isGrounded && lastTimeGrounded < CoyoteTime && !isJumping && canJump || canBypassJump && Input.GetButtonDown("Jump") && !isJumping && MeleeAttackManager.isStuck && !isStuck)
-            {
-                JumpInput();
-            }
-            if (jumpBufferTemp > 0 && !isJumping)
-            {
-                jumpBufferTemp -= Time.deltaTime;
-                StartCoroutine(CanJumpReset());
-            }
-            else if (Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
-            {
-                jumpBufferTemp = jumpBufferTime;
-            }
-     
-            if (isJumping && Input.GetButtonUp("Jump") && !isDashing)
-            {
-                onJumpUp();
-            }
-            #endregion
-            #region directionFacing
-            if (gameManager.GetComponent<PauseScript>().GameIsPaused == false)
-            {
-                if (Input.GetAxis("Horizontal") <= 1 && (Input.GetAxis("Horizontal")) > 0 && MeleeAttackManager.isStuck == false)
+                if (!isGrounded)
                 {
-                    facingForward = true;
-                    transform.localScale = new Vector2(1, transform.localScale.y);
+                    lastTimeGrounded += Time.deltaTime;
                 }
-                else if (Input.GetAxis("Horizontal") >= -1 && (Input.GetAxis("Horizontal")) < 0 && MeleeAttackManager.isStuck == false)
-                {
-                    facingForward = false;
-                    transform.localScale = new Vector2(-1, transform.localScale.y);
-                }
-            }
-            #endregion
 
+
+                #region Jump
+
+
+                if (Input.GetButtonDown("Jump") && lastTimeGrounded < CoyoteTime && !isJumping && jumpBufferTemp <= 0 && !isActuallyDashing && canJump && !isStuck || Input.GetButtonDown("Jump") && isGrounded && lastTimeGrounded < CoyoteTime && !isJumping && canJump || canBypassJump && Input.GetButtonDown("Jump") && !isJumping && MeleeAttackManager.isStuck && !isStuck)
+                {
+                    JumpInput();
+                }
+                if (jumpBufferTemp > 0 && !isJumping)
+                {
+                    jumpBufferTemp -= Time.deltaTime;
+                    StartCoroutine(CanJumpReset());
+                }
+                else if (Input.GetButtonDown("Jump") && !isGrounded && !isJumping)
+                {
+                    jumpBufferTemp = jumpBufferTime;
+                }
+
+                if (isJumping && Input.GetButtonUp("Jump") && !isDashing)
+                {
+                    onJumpUp();
+                }
+                #endregion
+                #region directionFacing
+                if (gameManager.GetComponent<PauseScript>().GameIsPaused == false)
+                {
+                    if (Input.GetAxis("Horizontal") <= 1 && (Input.GetAxis("Horizontal")) > 0 && MeleeAttackManager.isStuck == false)
+                    {
+                        facingForward = true;
+                        transform.localScale = new Vector2(1, transform.localScale.y);
+                    }
+                    else if (Input.GetAxis("Horizontal") >= -1 && (Input.GetAxis("Horizontal")) < 0 && MeleeAttackManager.isStuck == false)
+                    {
+                        facingForward = false;
+                        transform.localScale = new Vector2(-1, transform.localScale.y);
+                    }
+                }
+                #endregion
+
+            }
         }
         if (Side1)
         {

@@ -41,23 +41,20 @@ public class meleeAttackManager : MonoBehaviour
     }
     private void Update()
     {
-
-        if (gameManager.GetComponent<GameManager>().isFlipped)
+        if (gameManager.GetComponent<PauseScript>().GameIsPaused == false)
         {
-            CheckInput();
+            if (gameManager.GetComponent<GameManager>().isFlipped)
+            {
+                CheckInput();
+            }
+            checkDash();
+            if (gameManager.GetComponent<GameManager>().isFlipped == true)
+            {
+                anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 1);
+                anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 0);
+            }
         }
-        checkDash();
-        if (gameManager.GetComponent<GameManager>().isFlipped == true)
-        {
-            anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 1);
-            anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 0);
-        }
-        /* else
-         {
-             anim.SetLayerWeight(anim.GetLayerIndex("cloak"), 0);
-             anim.SetLayerWeight(anim.GetLayerIndex("uncloak"), 1);
-         }     */
-       
+        
     }
     private void CheckInput()
     {
