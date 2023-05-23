@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentRoom;
     public GameObject Player;
     private GameObject gameManager;
-
+    private CharecterController man;
     private void Start()
     {
         Player = GameObject.Find("player");
@@ -70,10 +70,22 @@ public class PlayerHealth : MonoBehaviour
     void RespawnPlayer()
     {
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameObject.Find("GameManager").GetComponent<TimeManager>().ResetTime();
         gameManager.GetComponent<roomReset>().restartroom(currentRoom);
         death = false;
         playerAnimator.SetBool("Death", false);
         Player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        man = Player.GetComponent<CharecterController>();
+        man.isJumping = false;
+        man.isDashing = false;
+        man.isActuallyDashing = false;
+        man.canDash = true;
+        man.canResetJump = true;
+        man.StopAllCoroutines();
+           
+
+
+
         GameObject[] Rooms = GameObject.FindGameObjectsWithTag("room");
         foreach (GameObject room in Rooms)
         {

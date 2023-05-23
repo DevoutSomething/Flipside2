@@ -52,7 +52,7 @@ public class CharecterController : MonoBehaviour
     private bool canResetDash;
     public bool canResetJump;
     private Rigidbody2D rb;
-    [SerializeField] public bool isJumping;
+    public bool isJumping;
     public bool isDashing;
     public bool isActuallyDashing;
     public bool canDash;

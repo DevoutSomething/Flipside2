@@ -48,6 +48,8 @@ public class PauseScript : MonoBehaviour
         GameIsPaused = true;
         Time.timeScale = 0f;
         pause.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
 
     }
     public void LoadMenu()
