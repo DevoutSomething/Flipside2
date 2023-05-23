@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7201461914647491320}
   - component: {fileID: 555923854793221182}
+  - component: {fileID: 3159467593535718912}
   m_Layer: 3
   m_Name: Back
   m_TagString: Untagged
@@ -298,6 +299,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.58638763, y: 0.041028023}
   m_EdgeRadius: 0
+--- !u!114 &3159467593535718912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201461914647491323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c26256051178e4ca418e204ae83979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOnPlatform: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &7201461914714879484
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +330,6 @@ GameObject:
   - component: {fileID: 7201461914714879481}
   - component: {fileID: 1018429617648123996}
   - component: {fileID: 1630216306}
-  - component: {fileID: 2672558598087988638}
   m_Layer: 8
   m_Name: BullEmemy 1
   m_TagString: Untagged
@@ -519,25 +535,5 @@ MonoBehaviour:
   giveDashReset: 0
   health: 1
   bounceMult: 2
-  makePlayerDash: 0
-  onlyFirstSide: 0
---- !u!114 &2672558598087988638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7201461914714879484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 853fe40b3f1d428438994a1d4cf51759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageable: 1
-  giveUpwardForce: 1
-  bounceCollide: 0
-  giveDashReset: 0
-  health: 1
-  bounceMult: 1
   makePlayerDash: 0
   onlyFirstSide: 0

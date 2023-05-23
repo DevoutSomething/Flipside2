@@ -33,10 +33,13 @@ public class EnemyController : MonoBehaviour
     private bool canMoveForward;
     [SerializeField] private bool stopMoving;
     [Header("Player")]
+    public int myRoom;
+    private GameObject player;
     private bool canSeePlayer;
     public float playerSearchDistance;
     private bool seePlayerR;
     private bool seePlayerL;
+    [SerializeField] private bool playerInRoom;
     [Header("Combat")]
     [SerializeField] private bool attackMode;
     public float agroTime;
@@ -46,6 +49,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("PlayerAnim");
         gameManager = GameObject.Find("GameManager");
         rb = gameObject.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -54,25 +58,32 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-       
-        MoveForward();
-        if (turnTimer > 0)
+        Debug.Log("sumthing");
+        if (player.GetComponent<PlayerHealth>().currentRoom == myRoom)
         {
-            turnTimer -= Time.deltaTime;
+            playerInRoom = true;
         }
-        if (jumpTimer > 0)
+        if (playerInRoom)
         {
-            jumpTimer -= Time.deltaTime;
-        }
-        Checkwalls();
-        if (!attackMode && gameManager.GetComponent<GameManager>().isFlipped)
-        {
-            LookForPlayer();
-        }
-        if (agroTimer <= 0)
-        {
-            attackMode = false;
-        }
+            MoveForward();
+            if (turnTimer > 0)
+            {
+                turnTimer -= Time.deltaTime;
+            }
+            if (jumpTimer > 0)
+            {
+                jumpTimer -= Time.deltaTime;
+            }
+            Checkwalls();
+            if (!attackMode && gameManager.GetComponent<GameManager>().isFlipped)
+            {
+                LookForPlayer();
+            }
+            if (agroTimer <= 0)
+            {
+                attackMode = false;
+            }
+        } 
     }
     private void Checkwalls()
     {
@@ -92,7 +103,7 @@ public class EnemyController : MonoBehaviour
         RaycastHit2D raycastHitSW = Physics2D.Raycast(raySWall.transform.position, Vector2.right * leftMultiply, rayDistance, groundLayer);
         if (raycastHitSW.collider != null)
         {
-            Debug.DrawRay(raySWall.transform.position, Vector2.right * leftMultiply * raycastHitSW.distance, Color.red);
+            //Debug.DrawRay(raySWall.transform.position, Vector2.right * leftMultiply * raycastHitSW.distance, Color.red);
             if (raycastHitSW.distance < turnDistance)
             {
                 seeSW = true;
@@ -100,7 +111,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(raySWall.transform.position, Vector2.right * leftMultiply * rayDistance, Color.green);
+            //Debug.DrawRay(raySWall.transform.position, Vector2.right * leftMultiply * rayDistance, Color.green);
             seeSW = false;
         }
         #endregion
@@ -108,7 +119,7 @@ public class EnemyController : MonoBehaviour
         RaycastHit2D raycastHitW = Physics2D.Raycast(rayWall.transform.position, Vector2.right * leftMultiply, rayDistance, groundLayer);
         if (raycastHitW.collider != null)
         {
-            Debug.DrawRay(rayWall.transform.position, Vector2.right * leftMultiply * raycastHitW.distance, Color.red);
+            //Debug.DrawRay(rayWall.transform.position, Vector2.right * leftMultiply * raycastHitW.distance, Color.red);
             if (raycastHitW.distance < turnDistance)
             {
                 seeW = true;
@@ -116,7 +127,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(rayWall.transform.position, Vector2.right * leftMultiply * rayDistance, Color.green);
+           // Debug.DrawRay(rayWall.transform.position, Vector2.right * leftMultiply * rayDistance, Color.green);
             seeW = false;
         }
         #endregion
@@ -127,12 +138,12 @@ public class EnemyController : MonoBehaviour
         RaycastHit2D raycastHitF = Physics2D.Raycast(fRayStartPoint, Vector2.down, rayDistance, groundLayer);
         if (raycastHitF.collider != null)
         {
-            Debug.DrawRay(fRayStartPoint, Vector2.down * raycastHitF.distance, Color.green);
+            //Debug.DrawRay(fRayStartPoint, Vector2.down * raycastHitF.distance, Color.green);
         }
         else
         {
             canMoveForward = false;
-            Debug.DrawRay(fRayStartPoint, Vector2.down * rayDistance, Color.red);
+            //Debug.DrawRay(fRayStartPoint, Vector2.down * rayDistance, Color.red);
             if (!attackMode)
             {
                 TurnAround();
