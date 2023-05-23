@@ -114,6 +114,7 @@ public class PlayerHealth : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("obstacle"))
         {
             TempHealth -= 1;
+            Debug.Log("colision");
         }
     }
   private void OnTriggerEnter2D(Collider2D col)

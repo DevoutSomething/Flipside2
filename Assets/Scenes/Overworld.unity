@@ -7985,11 +7985,11 @@ MonoBehaviour:
   gameData:
     currentLevelName: 
     lockedLevels:
-    - sceneToLoad: testScene
+    - sceneToLoad: Level II
       isLocked: 0
     - sceneToLoad: Level I
       isLocked: 1
-    - sceneToLoad: FarmWorld(Level One)
+    - sceneToLoad: Level III
       isLocked: 1
     - sceneToLoad: Level1
       isLocked: 1
