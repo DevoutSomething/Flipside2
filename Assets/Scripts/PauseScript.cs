@@ -31,10 +31,6 @@ public class PauseScript : MonoBehaviour
 
 
         }
-
-
-
-
     }
     public void Resume()
     {
