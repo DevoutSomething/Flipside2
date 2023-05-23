@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyControllerCow : MonoBehaviour
 {
     private BoxCollider2D boxCollider2d;
     private GameObject gameManager;
@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("sumthing");
+        //Debug.Log("sumthing");
         if (player.GetComponent<PlayerHealth>().currentRoom == myRoom)
         {
             playerInRoom = true;
@@ -172,7 +172,7 @@ public class EnemyController : MonoBehaviour
         {
             if (!attackMode)
             {
-                Jump();
+                TurnAround();
             }
             else
             {
